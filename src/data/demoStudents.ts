@@ -95,9 +95,9 @@ export const DEMO_CLASSES: SurveyClassData[] = [
 
 export const DEMO_EVIDENCE_DATA: CompetitionEvidenceData = {
   academicYear: '2026 - 2027',
-  schoolName: 'Trường TH-THCS Vĩnh Điều',
-  author: 'Danh Thanh',
-  province: 'An Giang',
+  schoolName: 'Trường TH-THCS Vĩnh Điều, xã Vĩnh Điều, An Giang',
+  author: 'Giáo viên: Thầy Danh Thanh',
+  province: 'Xã Vĩnh Điều, An Giang',
   classesCount: 5,
   totalStudents: 164,
   totalPracticeSessions: 2450,

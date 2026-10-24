@@ -13,7 +13,8 @@ import {
   MapPin, 
   Presentation,
   Flame,
-  Star
+  Star,
+  ClipboardList
 } from 'lucide-react';
 import { audioService } from '../services/audioService';
 
@@ -30,8 +31,8 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  currentGrade,
-  onSelectGrade,
+  currentGrade: _currentGrade,
+  onSelectGrade: _onSelectGrade,
   activeTab,
   onSelectTab,
   studentProfile,
@@ -40,14 +41,6 @@ export const Header: React.FC<HeaderProps> = ({
   reducedMotion,
   onToggleMotion,
 }) => {
-  const grades: { grade: GradeLevel; label: string; desc: string; color: string; activeColor: string }[] = [
-    { grade: 1, label: 'Lớp 1', desc: 'Làm quen & Khởi đầu', color: 'border-pink-200 bg-pink-50/70 text-pink-700 hover:bg-pink-100', activeColor: 'bg-pink-500 text-white shadow-md shadow-pink-200 border-pink-500' },
-    { grade: 2, label: 'Lớp 2', desc: 'Bảng nhân & Đọc hiểu', color: 'border-amber-200 bg-amber-50/70 text-amber-700 hover:bg-amber-100', activeColor: 'bg-amber-500 text-white shadow-md shadow-amber-200 border-amber-500' },
-    { grade: 3, label: 'Lớp 3', desc: 'Nhân chia & Đo lường', color: 'border-emerald-200 bg-emerald-50/70 text-emerald-700 hover:bg-emerald-100', activeColor: 'bg-emerald-600 text-white shadow-md shadow-emerald-200 border-emerald-600' },
-    { grade: 4, label: 'Lớp 4', desc: 'Phân số & Luyện câu', color: 'border-sky-200 bg-sky-50/70 text-sky-700 hover:bg-sky-100', activeColor: 'bg-sky-600 text-white shadow-md shadow-sky-200 border-sky-600' },
-    { grade: 5, label: 'Lớp 5', desc: 'Thập phân & Tập làm văn', color: 'border-indigo-200 bg-indigo-50/70 text-indigo-700 hover:bg-indigo-100', activeColor: 'bg-indigo-600 text-white shadow-md shadow-indigo-200 border-indigo-600' },
-  ];
-
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200 shadow-xs no-print">
       {/* Top Banner Information */}
@@ -58,7 +51,8 @@ export const Header: React.FC<HeaderProps> = ({
               <Sparkles className="w-3.5 h-3.5 text-emerald-400" /> GDPT 2018
             </span>
             <span className="hidden sm:inline text-slate-300">|</span>
-            <span>Trường TH-THCS Vĩnh Điều – An Giang</span>
+            <span>Trường TH-THCS Vĩnh Điều, xã Vĩnh Điều, An Giang</span>
+            <span className="hidden lg:inline text-amber-300 font-bold text-xs bg-amber-400/20 px-2 py-0.5 rounded-full border border-amber-300/30">Giáo viên: Danh Thanh</span>
             <span className="hidden md:inline text-slate-400 text-xs">(Năm học 2026 – 2027)</span>
           </div>
 
@@ -100,44 +94,34 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-700 to-teal-500 p-0.5 shadow-md flex items-center justify-center text-white">
               <div className="w-full h-full rounded-[14px] bg-slate-900/10 flex flex-col items-center justify-center">
                 <span className="font-extrabold text-sm tracking-wider">VĐ</span>
-                <span className="text-[9px] font-bold text-amber-300 -mt-0.5">AI 26</span>
+                <span className="text-[9px] font-bold text-amber-300 -mt-0.5">LỚP 2</span>
               </div>
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900">
-                  VĨNH ĐIỀU <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500">SMART AI</span>
+                  VĨNH ĐIỀU <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500">SMART AI – LỚP 2</span>
                 </h1>
-                <span className="hidden sm:inline-block bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">
-                  Dự thi 2026
+                <span className="bg-amber-100 text-amber-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase border border-amber-300">
+                  Chuyên Biệt Lớp 2
                 </span>
               </div>
               <p className="text-xs text-slate-500 font-medium italic">
-                "Mỗi học sinh một hành trình, mỗi tiến bộ một niềm vui!"
+                Hệ sinh thái học tập Toán & Tiếng Việt • Kết nối tri thức với cuộc sống
               </p>
             </div>
           </div>
 
-          {/* Quick Grade Selector Ribbon */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
-            <span className="text-xs font-bold text-slate-400 mr-1 hidden lg:inline">Chọn lớp:</span>
-            {grades.map(item => {
-              const isActive = currentGrade === item.grade;
-              return (
-                <button
-                  key={item.grade}
-                  onClick={() => {
-                    audioService.playCorrect();
-                    onSelectGrade(item.grade);
-                  }}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all shrink-0 ${
-                    isActive ? item.activeColor : item.color
-                  }`}
-                >
-                  {item.label}
-                </button>
-              );
-            })}
+          {/* Dedicated Grade 2 Badge */}
+          <div className="flex items-center gap-2 bg-gradient-to-r from-blue-50 to-teal-50 border border-blue-200 px-3.5 py-1.5 rounded-2xl shadow-xs">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+            <div className="text-left">
+              <div className="text-[10px] font-extrabold uppercase text-blue-700 tracking-wider">Không gian học tập</div>
+              <div className="text-xs font-black text-slate-900">LỚP 2 • GDPT 2018</div>
+            </div>
+            <span className="text-[11px] bg-blue-600 text-white font-bold px-2 py-0.5 rounded-lg shadow-xs ml-1">
+              Toán & Tiếng Việt
+            </span>
           </div>
         </div>
 
@@ -149,7 +133,7 @@ export const Header: React.FC<HeaderProps> = ({
               activeTab === 'home' ? 'bg-blue-600 text-white font-bold shadow-xs' : 'hover:bg-slate-100 text-slate-700'
             }`}
           >
-            <BookOpen className="w-4 h-4" /> Trang chủ Lớp {currentGrade}
+            <BookOpen className="w-4 h-4" /> Trang chủ Lớp 2
           </button>
 
           <button
@@ -168,6 +152,15 @@ export const Header: React.FC<HeaderProps> = ({
             }`}
           >
             <BookOpen className="w-4 h-4 text-teal-500" /> Tiếng Việt AI
+          </button>
+
+          <button
+            onClick={() => onSelectTab('tasks')}
+            className={`px-3 py-2 rounded-lg flex items-center gap-1.5 whitespace-nowrap transition-colors ${
+              activeTab === 'tasks' ? 'bg-orange-600 text-white font-bold shadow-xs' : 'hover:bg-orange-50 text-orange-700'
+            }`}
+          >
+            <ClipboardList className="w-4 h-4 text-orange-500" /> Nhiệm vụ được giao
           </button>
 
           <button

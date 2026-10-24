@@ -230,7 +230,7 @@ export const EvidenceDashboard: React.FC = () => {
         <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs">
           <div className="text-[11px] font-bold text-slate-400">10. Đơn vị chủ trì</div>
           <div className="text-sm font-black text-slate-900 mt-1 truncate">TH-THCS Vĩnh Điều</div>
-          <div className="text-[10px] text-slate-500">Tác giả: Danh Thanh</div>
+          <div className="text-[10px] text-slate-500">Giáo viên: Danh Thanh</div>
         </div>
       </div>
 
@@ -282,7 +282,7 @@ export const EvidenceDashboard: React.FC = () => {
             I. THÔNG TIN CHUNG & QUY TRÌNH TRIỂN KHAI
           </h4>
           <p>
-            • <strong>Tác giả giải pháp:</strong> Thầy Danh Thanh – Trường TH-THCS Vĩnh Điều, tỉnh An Giang.
+            • <strong>Tác giả giải pháp:</strong> Giáo viên: Danh Thanh – Trường TH-THCS Vĩnh Điều, xã Vĩnh Điều, An Giang.
           </p>
           <p>
             • <strong>Mục tiêu khảo sát:</strong> Đánh giá mức độ khắc phục các lỗi sai tư duy cốt lõi trong môn Toán và Tiếng Việt, đồng thời đo lường hiệu quả giảm tải thời gian biên soạn bài tập phân hóa của giáo viên vùng sâu, biên giới.
@@ -355,7 +355,7 @@ export const EvidenceDashboard: React.FC = () => {
             <div className="font-extrabold text-slate-900 uppercase">NGƯỜI LẬP BÁO CÁO</div>
             <div className="text-slate-400 italic mt-1">(Ký và ghi rõ họ tên)</div>
             <div className="h-16" />
-            <div className="font-extrabold text-slate-900">Danh Thanh</div>
+            <div className="font-extrabold text-slate-900">Giáo viên: Danh Thanh</div>
           </div>
         </div>
       </div>

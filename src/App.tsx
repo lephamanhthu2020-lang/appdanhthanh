@@ -18,9 +18,10 @@ import { EvidenceDashboard } from './components/EvidenceDashboard';
 import { AnGiangSpace } from './components/AnGiangSpace';
 import { CompetitionAbout } from './components/CompetitionAbout';
 import { MamAIChat } from './components/MamAIChat';
+import { StudentTasks } from './components/StudentTasks';
 
 export default function App() {
-  const [currentGrade, setCurrentGrade] = useState<GradeLevel>(2);
+  const currentGrade: GradeLevel = 2;
   const [activeTab, setActiveTab] = useState<string>('home');
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [reducedMotion, setReducedMotion] = useState<boolean>(false);
@@ -50,7 +51,10 @@ export default function App() {
     setIsMamAIOpen(true);
   };
 
+  const [targetTopicId, setTargetTopicId] = useState<string | undefined>(undefined);
+
   const handleOpenTopicFromCompetency = (subject: SubjectType, topicId: string) => {
+    setTargetTopicId(topicId);
     if (subject === 'math') {
       setActiveTab('math');
     } else {
@@ -63,12 +67,13 @@ export default function App() {
       {/* Universal Header with Navigation, Grade Ribbon and Audio Controls */}
       <Header
         currentGrade={currentGrade}
-        onSelectGrade={g => {
-          setCurrentGrade(g);
+        onSelectGrade={_g => {
+          setTargetTopicId(undefined);
         }}
         activeTab={activeTab}
         onSelectTab={t => {
           setActiveTab(t);
+          setTargetTopicId(undefined);
           window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
         }}
         studentProfile={studentProfile}
@@ -83,9 +88,12 @@ export default function App() {
         {activeTab === 'home' && (
           <HomeDashboard
             currentGrade={currentGrade}
-            onSelectGrade={g => setCurrentGrade(g)}
+            onSelectGrade={_g => {
+              setTargetTopicId(undefined);
+            }}
             onNavigate={t => {
               setActiveTab(t);
+              setTargetTopicId(undefined);
               window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
             }}
             studentProfile={studentProfile}
@@ -97,6 +105,7 @@ export default function App() {
           <MathRoom
             currentGrade={currentGrade}
             onOpenMamAIWithContext={handleOpenMamAIWithContext}
+            initialTopicId={targetTopicId}
           />
         )}
 
@@ -104,6 +113,14 @@ export default function App() {
           <VietnameseRoom
             currentGrade={currentGrade}
             onOpenMamAIWithContext={handleOpenMamAIWithContext}
+            initialTopicId={targetTopicId}
+          />
+        )}
+
+        {activeTab === 'tasks' && (
+          <StudentTasks
+            currentGrade={currentGrade}
+            studentProfile={studentProfile}
           />
         )}
 
@@ -147,13 +164,13 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <div className="space-y-1">
             <div className="text-white font-extrabold text-sm tracking-wide">
-              VĨNH ĐIỀU SMART AI – HỆ SINH THÁI HỌC TẬP THÔNG MINH
+              VĨNH ĐIỀU SMART AI – LỚP 2
             </div>
             <p className="text-slate-400 text-xs">
-              Mỗi học sinh một hành trình, mỗi tiến bộ một niềm vui!
+              Hệ sinh thái học tập thông minh môn Toán & Tiếng Việt Lớp 2 • Kết nối tri thức với cuộc sống
             </p>
-            <p className="text-slate-500 text-[11px]">
-              Tác giả: <strong>Danh Thanh</strong> • Đơn vị: <strong>Trường TH-THCS Vĩnh Điều</strong>, An Giang (Năm học 2026 – 2027)
+            <p className="text-slate-300 text-[11px]">
+              Tác giả: <strong>Giáo viên Danh Thanh</strong> • Đơn vị: <strong>Trường TH-THCS Vĩnh Điều</strong>, xã Vĩnh Điều, An Giang (Năm học 2026 – 2027)
             </p>
           </div>
 

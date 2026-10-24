@@ -74,8 +74,8 @@ export const CompetitionAbout: React.FC<CompetitionAboutProps> = ({ onStartDemoS
             Hệ sinh thái học tập thông minh, cá nhân hóa môn Toán và Tiếng Việt cho học sinh tiểu học
           </p>
           <div className="text-xs sm:text-sm text-slate-300 space-y-1">
-            <p>• <strong>Tác giả:</strong> Thầy Danh Thanh</p>
-            <p>• <strong>Đơn vị:</strong> Trường TH-THCS Vĩnh Điều, Huyện Giang Thành, Tỉnh An Giang</p>
+            <p>• <strong>Tác giả:</strong> Giáo viên: Thầy Danh Thanh</p>
+            <p>• <strong>Đơn vị:</strong> Trường TH-THCS Vĩnh Điều, xã Vĩnh Điều, An Giang</p>
             <p>• <strong>Năm học:</strong> 2026 – 2027</p>
             <p className="italic text-amber-200 font-medium pt-1">
               Khẩu hiệu: "Mỗi học sinh một hành trình, mỗi tiến bộ một niềm vui!"

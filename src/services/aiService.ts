@@ -124,6 +124,47 @@ export async function generateWorksheet(
   }
 }
 
+export async function parseTextbookMaterial(
+  rawText: string,
+  bookSeries: string,
+  grade: GradeLevel,
+  subject: SubjectType,
+  unitLesson: string
+): Promise<{
+  title: string;
+  content: string;
+  vocabularyNotes?: { word: string; meaning: string }[];
+  questions: any[];
+}> {
+  try {
+    const res = await fetch('/api/ai/parse-textbook-material', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ rawText, bookSeries, grade, subject, unitLesson }),
+    });
+    if (!res.ok) throw new Error('Failed to parse textbook material');
+    return await res.json();
+  } catch (err) {
+    console.warn('Fallback textbook parsing:', err);
+    return {
+      title: unitLesson || `Bài học SGK ${bookSeries} - Lớp ${grade}`,
+      content: rawText,
+      vocabularyNotes: [{ word: 'Ghi nhớ', meaning: 'Nội dung cốt lõi của bài học theo SGK' }],
+      questions: [
+        {
+          id: 'tb-q1',
+          prompt: `Em hãy đọc kỹ ngữ liệu và cho biết bài học nhắc đến nội dung trọng tâm nào?`,
+          format: 'multiple_choice',
+          options: ['A. Ý kiến thứ nhất', 'B. Nội dung bài học (Chính xác)', 'C. Ý kiến thứ ba', 'D. Ý kiến thứ tư'],
+          correctAnswer: 'B. Nội dung bài học (Chính xác)',
+          solutionExplanation: 'Dựa vào câu văn và dữ kiện được nêu trực tiếp trong ngữ liệu sách giáo khoa.',
+          cognitiveLevel: 'Thông hiểu',
+        },
+      ],
+    };
+  }
+}
+
 function getClientFallbackReply(msg: string, grade: GradeLevel, subject: SubjectType): string {
   const lower = msg.toLowerCase();
   if (lower.includes('chào') || lower.includes('hello')) {
@@ -134,3 +175,74 @@ function getClientFallbackReply(msg: string, grade: GradeLevel, subject: Subject
   }
   return `Tiếng Việt mến yêu của chúng mình thật giàu đẹp! Em hãy đọc to từng câu để cảm nhận giai điệu nhé!`;
 }
+
+export async function generateLessonContent(params: {
+  subject: SubjectType;
+  title: string;
+  topic: string;
+  objectives: string[];
+  questionCount?: number;
+  difficulty?: string;
+}): Promise<{ success: boolean; data: any; source: string }> {
+  try {
+    const res = await fetch('/api/ai/generate-lesson', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(params),
+    });
+    if (!res.ok) throw new Error('Failed to generate lesson content');
+    return await res.json();
+  } catch (err) {
+    console.warn('Fallback generating lesson:', err);
+    return {
+      success: true,
+      source: 'offline_heuristic',
+      data: {
+        warmup: {
+          scenario: `Học sinh Lớp 2 cùng quan sát tình huống bài học ${params.title}.`,
+          question: 'Em hãy quan sát và cho biết điều gì đặc biệt?',
+          options: ['A. Lựa chọn 1', 'B. Lựa chọn đúng', 'C. Lựa chọn 3', 'D. Lựa chọn 4'],
+          answer: 'B. Lựa chọn đúng'
+        },
+        explore: {
+          keyPoints: [
+            `Trọng tâm kiến thức: ${params.title}`,
+            'Các bước thực hiện theo chuẩn sách giáo khoa Kết nối tri thức.'
+          ],
+          examples: [
+            { problem: 'Ví dụ mẫu minh họa', solution: 'Hướng dẫn giải chi tiết từng bước.' }
+          ]
+        },
+        practice: {
+          questions: [
+            {
+              id: 'gen-q1',
+              grade: 2,
+              subject: params.subject,
+              topicId: 'custom',
+              format: 'multiple_choice',
+              prompt: `Câu hỏi thực hành bài ${params.title}: Kết quả đúng là:`,
+              options: ['A. Đáp án 1', 'B. Đáp án 2 (Đúng)', 'C. Đáp án 3', 'D. Đáp án 4'],
+              correctAnswer: 'B. Đáp án 2 (Đúng)',
+              solutionExplanation: 'Dựa vào kiến thức lý thuyết trọng tâm.',
+              cognitiveLevel: 'Thông hiểu'
+            }
+          ]
+        },
+        application: {
+          scenario: 'Vận dụng vào đời sống hàng ngày tại xã Vĩnh Điều, An Giang.',
+          task: 'Áp dụng bài học cùng người thân.',
+          answer: 'Thực hiện chính xác theo hướng dẫn.',
+          localContext: 'Xã Vĩnh Điều, An Giang'
+        },
+        consolidation: {
+          summary: `Chúc mừng em đã hoàn thành bài học ${params.title}.`,
+          quickQuestion: 'Em đã tự tin với nội dung bài chưa?',
+          quickAnswer: 'Em đã rất tự tin!',
+          mamAINote: 'Mầm AI khen ngợi sự chăm chỉ của em!'
+        }
+      }
+    };
+  }
+}
+

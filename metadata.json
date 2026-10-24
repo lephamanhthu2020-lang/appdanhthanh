@@ -1,6 +1,6 @@
 {
   "name": "Vĩnh Điều Smart AI",
-  "description": "Hệ sinh thái học tập thông minh, cá nhân hóa môn Toán và Tiếng Việt cho học sinh tiểu học - Trường TH-THCS Vĩnh Điều",
+  "description": "Hệ sinh thái học tập thông minh môn Toán và Tiếng Việt Lớp 2 bộ sách Kết nối tri thức - Tác giả: Danh Thanh, Trường TH-THCS Vĩnh Điều, xã Vĩnh Điều, An Giang (2026-2027)",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

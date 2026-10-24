@@ -153,3 +153,110 @@ export interface CompetitionEvidenceData {
   sampleClasses: SurveyClassData[];
   isDemoData: boolean;
 }
+
+export type BookSeries = 'Kết nối tri thức' | 'Cánh diều' | 'Chân trời sáng tạo';
+
+export interface TextbookMaterial {
+  id: string;
+  title: string;
+  bookSeries: BookSeries;
+  grade: GradeLevel;
+  subject: SubjectType;
+  unitLesson: string;
+  content: string;
+  vocabularyNotes?: { word: string; meaning: string }[];
+  questions: QuestionItem[];
+  uploadedBy: string;
+  createdAt: string;
+}
+
+export interface TaskSubmission {
+  studentId: string;
+  studentName: string;
+  submittedAt: string;
+  score: number;
+  total: number;
+  isPassed: boolean;
+  notes?: string;
+  wrongAnswers?: { questionPrompt: string; studentAnswer: string; correctAnswer: string }[];
+}
+
+export interface AssignedTask {
+  id: string;
+  title: string;
+  targetClass: string;
+  grade: GradeLevel;
+  subject: SubjectType;
+  assignedBy: string; // "Thầy Danh Thanh"
+  createdAt: string;
+  dueDate: string;
+  questions: QuestionItem[];
+  submissions: TaskSubmission[];
+  note?: string;
+}
+
+export type LessonStatus = 'draft' | 'published' | 'archived';
+
+export interface CurriculumLessonActivity {
+  warmup?: {
+    scenario: string;
+    question?: string;
+    options?: string[];
+    answer?: string;
+    visualAid?: string;
+  };
+  explore?: {
+    keyPoints: string[];
+    examples?: { problem: string; solution: string }[];
+  };
+  practice?: {
+    questions: QuestionItem[];
+  };
+  application?: {
+    scenario: string;
+    task: string;
+    answer?: string;
+    localContext?: string;
+  };
+  consolidation?: {
+    summary: string;
+    quickQuestion?: string;
+    quickAnswer?: string;
+    mamAINote?: string;
+  };
+}
+
+export interface CurriculumLesson {
+  id: string; // e.g., 'toan-2-t1-b2' or 'tv-2-t1-b1'
+  grade: 2;
+  subject: SubjectType;
+  semester: 1 | 2;
+  volume: 1 | 2;
+  topic: string; // e.g., 'Chủ đề 1: Ôn tập và bổ sung'
+  week?: string; // e.g., 'Tuần 1'
+  lessonNumber: number;
+  periodCount?: number;
+  title: string; // e.g., 'Bài 2. Tia số. Số liền trước, số liền sau'
+  objectives: string[];
+  status: LessonStatus;
+  sourceUrl?: string; // Link to official taphuan.nxbgd.vn
+  sourceStatus?: 'verified' | 'referencing' | 'custom';
+  activities: CurriculumLessonActivity;
+  readingPassage?: {
+    title: string;
+    content: string;
+    authorOrOrigin?: string;
+    vocabularyNotes?: { word: string; meaning: string }[];
+    audioUrl?: string; // Custom uploaded teacher MP3 audio
+  };
+  createdAt: string;
+  updatedAt: string;
+  updatedBy: string;
+}
+
+export interface AudioSettings {
+  ttsEnabledByTeacher: boolean;
+  speechRate: number; // 0.85 - 0.95
+  selectedVoiceName?: string;
+}
+

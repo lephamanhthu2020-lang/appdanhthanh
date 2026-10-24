@@ -434,89 +434,240 @@ export const CURRICULUM_DATA: LessonTopic[] = [
   },
 
   // ==========================================
-  // LỚP 2 - TOÁN
+  // LỚP 2 - TOÁN (BỘ KẾT NỐI TRI THỨC VỚI CUỘC SỐNG)
   // ==========================================
   {
-    id: 'math-g2-multdiv',
+    id: 'math-g2-terms-sum-diff',
     grade: 2,
     subject: 'math',
-    title: 'Phép nhân và Phép chia (Bảng nhân 2, 5)',
-    weekRange: 'Tuần 16 - 20',
-    description: 'Hình thành khái niệm phép nhân là tổng các số hạng bằng nhau. Bảng nhân chia cơ bản.',
+    title: 'Tia số, Số hạng - Tổng, Số bị trừ - Số trừ - Hiệu',
+    weekRange: 'Tuần 1 - 4 (SGK Toán 2 Tập 1)',
+    description: 'Làm quen tia số, số liền trước, số liền sau. Nhận biết tên gọi các thành phần trong phép cộng và phép trừ.',
     iconName: 'Calculator',
-    badgeColor: 'emerald',
-    learningGoals: ['Thuộc bảng nhân 2 và 5', 'Hiểu bản chất phép nhân 3 x 4 là 4 nhóm, mỗi nhóm 3 đồ vật'],
-    anGiangNote: 'Mỗi thuyền ba lá chở 5 thúng lúa. Hỏi 4 thuyền chở bao nhiêu thúng lúa?',
+    badgeColor: 'blue',
+    learningGoals: [
+      'Xác định đúng số liền trước, số liền sau trên tia số',
+      'Gọi đúng tên thành phần: Số hạng - Số hạng - Tổng; Số bị trừ - Số trừ - Hiệu',
+      'Giải bài toán về nhiều hơn, ít hơn một số đơn vị'
+    ],
+    anGiangNote: 'Trên cánh đồng lúa Vĩnh Điều, đếm các mốc cọc tiêu đo mực nước lũ theo thứ tự tia số.',
     questions: [
       {
-        id: 'm2-1',
+        id: 'm2-terms-1',
         grade: 2,
         subject: 'math',
-        topicId: 'math-g2-multdiv',
+        topicId: 'math-g2-terms-sum-diff',
         format: 'multiple_choice',
-        prompt: 'Tính: 3 x 4 = ?',
-        options: ['A. 7', 'B. 12', 'C. 14', 'D. 10'],
-        correctAnswer: 'B. 12',
-        solutionExplanation: '3 x 4 nghĩa là 3 được lấy 4 lần: 3 + 3 + 3 + 3 = 12.',
-        cognitiveLevel: 'Thông hiểu',
+        prompt: 'Trong phép tính 35 + 14 = 49, số 49 được gọi là gì?',
+        options: ['A. Số hạng', 'B. Tổng', 'C. Hiệu', 'D. Số bị trừ'],
+        correctAnswer: 'B. Tổng',
+        solutionExplanation: 'Trong phép cộng, hai số đem cộng với nhau gọi là các "Số hạng", kết quả của phép cộng gọi là "Tổng". Vậy 49 là Tổng.',
+        cognitiveLevel: 'Nhận biết',
         commonErrors: [
           {
-            pattern: 'A. 7',
-            category: 'Nhầm phép nhân thành phép cộng',
-            explanation: 'Có vẻ em đã lấy 3 + 4 = 7 thay vì thực hiện phép nhân!',
-            hint: 'Phép nhân 3 x 4 nghĩa là có 4 nhóm, mỗi nhóm có 3 đồ vật: 3 + 3 + 3 + 3 = ?'
-          },
-          {
-            pattern: 'C. 14',
-            category: 'Nhầm kết quả trong bảng nhân liền kề',
-            explanation: '14 là kết quả của 2 x 7, không phải 3 x 4.',
-            hint: 'Hãy nhẩm lại bảng nhân 3: 3 x 1 = 3, 3 x 2 = 6, 3 x 3 = 9, 3 x 4 = ?'
+            pattern: 'A. Số hạng',
+            category: 'Nhầm lẫn giữa thành phần và kết quả phép cộng',
+            explanation: '35 và 14 mới là các số hạng, còn 49 là kết quả sau dấu "=".',
+            hint: 'Kết quả của phép tính cộng gọi là Tổng em nhé!'
           }
         ]
       },
       {
-        id: 'm2-2',
+        id: 'm2-terms-2',
         grade: 2,
         subject: 'math',
-        topicId: 'math-g2-multdiv',
+        topicId: 'math-g2-terms-sum-diff',
+        format: 'fill_blank',
+        prompt: 'Số liền sau của số 79 trên tia số là số nào?',
+        correctAnswer: '80',
+        solutionExplanation: 'Muốn tìm số liền sau của một số, ta lấy số đó cộng thêm 1 đơn vị: 79 + 1 = 80.',
+        cognitiveLevel: 'Thông hiểu',
+        commonErrors: [
+          {
+            pattern: '78',
+            category: 'Nhầm số liền sau thành số liền trước',
+            explanation: '78 là số liền trước (đứng ngay trước 79). Số liền sau phải lớn hơn 1 đơn vị.',
+            hint: 'Đếm tiếp sau 79 là đến số mấy nào em? 79 rồi đến...?'
+          }
+        ]
+      },
+      {
+        id: 'm2-terms-3',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-terms-sum-diff',
         format: 'multiple_choice',
-        prompt: 'Mỗi chiếc ghe ở chợ nổi Châu Đốc chở 5 giỏ bưởi. Hỏi 6 chiếc ghe như thế chở tất cả bao nhiêu giỏ bưởi?',
-        options: ['A. 30 giỏ', 'B. 25 giỏ', 'C. 11 giỏ', 'D. 35 giỏ'],
-        correctAnswer: 'A. 30 giỏ',
-        solutionExplanation: 'Số giỏ bưởi là: 5 x 6 = 30 (giỏ bưởi).',
+        prompt: 'Trong phép trừ 68 - 25 = 43, số 68 được gọi là gì?',
+        options: ['A. Số bị trừ', 'B. Số trừ', 'C. Hiệu', 'D. Tổng'],
+        correctAnswer: 'A. Số bị trừ',
+        solutionExplanation: 'Trong phép trừ, số đứng trước dấu trừ gọi là "Số bị trừ", số đứng sau dấu trừ gọi là "Số trừ", kết quả gọi là "Hiệu".',
+        cognitiveLevel: 'Nhận biết'
+      },
+      {
+        id: 'm2-terms-4',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-terms-sum-diff',
+        format: 'multiple_choice',
+        prompt: 'Nhà bạn An ở xã Vĩnh Điều nuôi 45 con vịt, nhà bạn Bình nuôi ít hơn nhà bạn An 12 con vịt. Hỏi nhà bạn Bình nuôi bao nhiêu con vịt?',
+        options: ['A. 33 con vịt', 'B. 57 con vịt', 'C. 32 con vịt', 'D. 23 con vịt'],
+        correctAnswer: 'A. 33 con vịt',
+        solutionExplanation: 'Bài toán về ít hơn, ta làm phép trừ: 45 - 12 = 33 (con vịt).',
         cognitiveLevel: 'Vận dụng',
         isAnGiangContext: true,
         commonErrors: [
           {
-            pattern: 'C. 11 giỏ',
-            category: 'Lấy số cộng lại do hiểu sai bài toán',
-            explanation: 'Bài toán có 6 chiếc ghe, mỗi ghe 5 giỏ nên phải nhân chứ không cộng (5 + 6 = 11 là sai).',
-            hint: '5 giỏ được lặp lại 6 lần, em hãy dùng phép nhân 5 x 6 nhé!'
+            pattern: 'B. 57 con vịt',
+            category: 'Nhầm bài toán ít hơn thành phép cộng',
+            explanation: 'Nhà Bình nuôi ít hơn nhà An, vậy số vịt phải nhỏ hơn 45.',
+            hint: 'Khi gặp từ "ít hơn", em hãy dùng phép tính trừ (45 - 12) nhé!'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'math-g2-addsub-within20',
+    grade: 2,
+    subject: 'math',
+    title: 'Phép cộng, phép trừ qua 10 trong phạm vi 20',
+    weekRange: 'Tuần 5 - 9 (SGK Toán 2 Tập 1)',
+    description: 'Nắm vững kỹ thuật làm tròn 10 để cộng và trừ qua 10: 9, 8, 7, 6 cộng với một số; 11, 12, 13, 14, 15, 16, 17, 18 trừ đi một số.',
+    iconName: 'PlusCircle',
+    badgeColor: 'indigo',
+    learningGoals: [
+      'Thuộc và vận dụng thành thạo bảng cộng qua 10 (9 + 4 = 13, 8 + 5 = 13...)',
+      'Thuộc và vận dụng thành thạo bảng trừ qua 10 (11 - 5 = 6, 13 - 7 = 6...)',
+      'Tính nhẩm nhanh không cần đếm ngón tay từng đơn vị'
+    ],
+    questions: [
+      {
+        id: 'm2-within20-1',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-addsub-within20',
+        format: 'multiple_choice',
+        prompt: 'Tính nhẩm bằng cách tách số: 9 + 6 = ?',
+        options: ['A. 15', 'B. 14', 'C. 16', 'D. 13'],
+        correctAnswer: 'A. 15',
+        solutionExplanation: 'Tách 6 = 1 + 5. Ta lấy 9 + 1 = 10, rồi 10 + 5 = 15.',
+        cognitiveLevel: 'Thông hiểu',
+        commonErrors: [
+          {
+            pattern: 'B. 14',
+            category: 'Tách thiếu 1 đơn vị',
+            explanation: 'Khi tách 6 thành 1 và 5, em nhớ cộng 10 với 5 bằng 15 nhé.',
+            hint: '9 cộng 1 là 10. Số 6 bớt 1 còn 5. 10 cộng 5 bằng bao nhiêu nào?'
           }
         ]
       },
       {
-        id: 'm2-3',
+        id: 'm2-within20-2',
         grade: 2,
         subject: 'math',
-        topicId: 'math-g2-multdiv',
+        topicId: 'math-g2-addsub-within20',
         format: 'fill_blank',
-        prompt: 'Tính: 10 : 2 = ?',
-        correctAnswer: '5',
-        solutionExplanation: 'Có 10 quả chia đều cho 2 bạn, mỗi bạn được 5 quả: 10 : 2 = 5.',
-        cognitiveLevel: 'Thông hiểu'
+        prompt: 'Tính: 13 - 7 = ?',
+        correctAnswer: '6',
+        solutionExplanation: 'Trừ để được 10 rồi trừ số còn lại: 13 - 3 = 10; 10 - 4 = 6. Vậy 13 - 7 = 6.',
+        cognitiveLevel: 'Thông hiểu',
+        commonErrors: [
+          {
+            pattern: '7',
+            category: 'Nhầm lẫn kết quả bảng trừ',
+            explanation: '13 - 6 mới bằng 7. Ở đây là 13 - 7.',
+            hint: 'Em nhớ lại xem: 7 cộng với mấy thì bằng 13? 7 + 6 = 13, vậy 13 - 7 = 6!'
+          }
+        ]
       },
       {
-        id: 'm2-4',
+        id: 'm2-within20-3',
         grade: 2,
         subject: 'math',
-        topicId: 'math-g2-multdiv',
+        topicId: 'math-g2-addsub-within20',
         format: 'multiple_choice',
-        prompt: 'Tổng 2 + 2 + 2 + 2 + 2 được viết dưới dạng phép nhân là:',
-        options: ['A. 2 x 5', 'B. 2 x 4', 'C. 5 x 5', 'D. 2 + 5'],
-        correctAnswer: 'A. 2 x 5',
-        solutionExplanation: 'Số 2 được lấy 5 lần, nên ta viết là 2 x 5.',
+        prompt: 'Trên cành cây thốt nốt có 8 con chim cu cườm, có thêm 7 con chim nữa bay tới đậu cùng. Hỏi có tất cả bao nhiêu con chim?',
+        options: ['A. 15 con chim', 'B. 14 con chim', 'C. 16 con chim', 'D. 13 con chim'],
+        correctAnswer: 'A. 15 con chim',
+        solutionExplanation: '8 + 7 = 8 + 2 + 5 = 15 con chim.',
+        cognitiveLevel: 'Vận dụng',
+        isAnGiangContext: true
+      },
+      {
+        id: 'm2-within20-4',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-addsub-within20',
+        format: 'fill_blank',
+        prompt: 'Điền số thích hợp: 8 + ... = 14',
+        correctAnswer: '6',
+        solutionExplanation: 'Muốn tìm số hạng chưa biết, ta lấy 14 - 8 = 6.',
+        cognitiveLevel: 'Vận dụng'
+      }
+    ]
+  },
+  {
+    id: 'math-g2-shapes-geometry',
+    grade: 2,
+    subject: 'math',
+    title: 'Điểm, Đoạn thẳng, Đường gấp khúc & Độ dài đường gấp khúc',
+    weekRange: 'Tuần 10 - 13 (SGK Toán 2 Tập 1)',
+    description: 'Nhận biết điểm, đoạn thẳng, ba điểm thẳng hàng, đường gấp khúc. Cách đo và tính độ dài đường gấp khúc.',
+    iconName: 'Sparkles',
+    badgeColor: 'sky',
+    learningGoals: [
+      'Nhận biết ba điểm thẳng hàng và gọi đúng tên đoạn thẳng',
+      'Biết tính độ dài đường gấp khúc bằng tổng độ dài các đoạn thẳng',
+      'Sử dụng thước thẳng có vạch xăng-ti-mét để đo chính xác'
+    ],
+    questions: [
+      {
+        id: 'm2-shape-1',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-shapes-geometry',
+        format: 'multiple_choice',
+        prompt: 'Ba điểm A, B, C được gọi là ba điểm thẳng hàng khi nào?',
+        options: [
+          'A. Khi ba điểm cùng nằm trên một đường thẳng',
+          'B. Khi ba điểm tạo thành hình tam giác',
+          'C. Khi ba điểm nằm ở bất kỳ đâu',
+          'D. Khi điểm B cao hơn điểm A và C'
+        ],
+        correctAnswer: 'A. Khi ba điểm cùng nằm trên một đường thẳng',
+        solutionExplanation: 'Theo định nghĩa trong SGK Toán 2: Khi ba điểm cùng nằm trên một đường thẳng, ta nói ba điểm đó thẳng hàng.',
         cognitiveLevel: 'Nhận biết'
+      },
+      {
+        id: 'm2-shape-2',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-shapes-geometry',
+        format: 'fill_blank',
+        prompt: 'Đường gấp khúc ABCD gồm 3 đoạn thẳng: AB = 3 cm, BC = 4 cm, CD = 5 cm. Độ dài đường gấp khúc ABCD là bao nhiêu cm? (Chỉ nhập số)',
+        correctAnswer: '12',
+        solutionExplanation: 'Độ dài đường gấp khúc bằng tổng độ dài các đoạn thẳng thành phần: 3 + 4 + 5 = 12 cm.',
+        cognitiveLevel: 'Vận dụng',
+        commonErrors: [
+          {
+            pattern: '7',
+            category: 'Cộng sót đoạn thẳng CD',
+            explanation: 'Em chỉ mới cộng hai đoạn AB và BC (3 + 4 = 7) mà quên cộng đoạn CD dài 5 cm.',
+            hint: 'Đường gấp khúc có 3 đoạn, em lấy 3 + 4 + 5 nhé!'
+          }
+        ]
+      },
+      {
+        id: 'm2-shape-3',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-shapes-geometry',
+        format: 'multiple_choice',
+        prompt: 'Hình nào dưới đây là đường gấp khúc gồm 2 đoạn thẳng?',
+        options: ['A. Hình chữ V', 'B. Hình tròn', 'C. Hình một đường thẳng', 'D. Hình bông hoa'],
+        correctAnswer: 'A. Hình chữ V',
+        solutionExplanation: 'Hình chữ V gồm 2 đoạn thẳng nối tiếp nhau có chung 1 điểm đỉnh, đó là đường gấp khúc 2 đoạn thẳng.',
+        cognitiveLevel: 'Thông hiểu'
       }
     ]
   },
@@ -525,11 +676,15 @@ export const CURRICULUM_DATA: LessonTopic[] = [
     grade: 2,
     subject: 'math',
     title: 'Phép cộng, phép trừ có nhớ trong phạm vi 100',
-    weekRange: 'Tuần 8 - 14',
-    description: 'Thực hiện đặt tính rồi tính phép cộng trừ có nhớ, bài toán về nhiều hơn, ít hơn.',
+    weekRange: 'Tuần 14 - 18 (SGK Toán 2 Tập 1)',
+    description: 'Thực hiện đặt tính rồi tính phép cộng, phép trừ có nhớ trong phạm vi 100 (dạng 26 + 5, 36 + 27; 52 - 4, 52 - 24).',
     iconName: 'PlusCircle',
-    badgeColor: 'sky',
-    learningGoals: ['Đặt tính thẳng cột và tính đúng phép cộng có nhớ', 'Nhớ 1 sang hàng chục khi cộng hàng đơn vị vượt qua 10'],
+    badgeColor: 'emerald',
+    learningGoals: [
+      'Đặt tính thẳng cột: hàng đơn vị thẳng hàng đơn vị, hàng chục thẳng hàng chục',
+      'Nhớ 1 sang hàng chục ở phép cộng có nhớ',
+      'Nhớ 1 sang số trừ ở hàng chục khi mượn 1 chục ở phép trừ'
+    ],
     questions: [
       {
         id: 'm2-as1',
@@ -575,11 +730,12 @@ export const CURRICULUM_DATA: LessonTopic[] = [
         subject: 'math',
         topicId: 'math-g2-addsubcarry',
         format: 'multiple_choice',
-        prompt: 'Lớp 2A có 34 học sinh, lớp 2B có nhiều hơn lớp 2A 5 học sinh. Hỏi lớp 2B có bao nhiêu học sinh?',
+        prompt: 'Lớp 2A trường Vĩnh Điều có 34 học sinh, lớp 2B có nhiều hơn lớp 2A 5 học sinh. Hỏi lớp 2B có bao nhiêu học sinh?',
         options: ['A. 39 học sinh', 'B. 29 học sinh', 'C. 40 học sinh', 'D. 38 học sinh'],
         correctAnswer: 'A. 39 học sinh',
         solutionExplanation: 'Nhiều hơn ta làm phép cộng: 34 + 5 = 39 (học sinh).',
-        cognitiveLevel: 'Vận dụng'
+        cognitiveLevel: 'Vận dụng',
+        isAnGiangContext: true
       },
       {
         id: 'm2-as4',
@@ -587,11 +743,11 @@ export const CURRICULUM_DATA: LessonTopic[] = [
         subject: 'math',
         topicId: 'math-g2-addsubcarry',
         format: 'multiple_choice',
-        prompt: 'Độ dài đoạn thẳng AB là 15cm, đoạn thẳng CD ngắn hơn AB 6cm. Độ dài đoạn CD là:',
-        options: ['A. 9cm', 'B. 21cm', 'C. 11cm', 'D. 8cm'],
-        correctAnswer: 'A. 9cm',
-        solutionExplanation: 'Ngắn hơn là ít hơn: 15 - 6 = 9 (cm).',
-        cognitiveLevel: 'Thông hiểu'
+        prompt: 'Bác nông dân gặt được 73 bao lúa, đã chở về nhà 28 bao. Hỏi còn lại bao nhiêu bao lúa ngoài ruộng?',
+        options: ['A. 45 bao', 'B. 55 bao', 'C. 46 bao', 'D. 51 bao'],
+        correctAnswer: 'A. 45 bao',
+        solutionExplanation: '73 - 28 = 45 bao lúa.',
+        cognitiveLevel: 'Vận dụng'
       }
     ]
   },
@@ -599,12 +755,16 @@ export const CURRICULUM_DATA: LessonTopic[] = [
     id: 'math-g2-measurement',
     grade: 2,
     subject: 'math',
-    title: 'Đại lượng và Đo lường: Đề-xi-mét, Lít, Ki-lô-gam',
-    weekRange: 'Tuần 10 - 15',
-    description: 'Làm quen đơn vị đo độ dài dm, dung tích lít (l), khối lượng ki-lô-gam (kg).',
+    title: 'Đo lường: Đề-xi-mét (dm), Ki-lô-gam (kg), Lít (l)',
+    weekRange: 'Tuần 19 - 22 (SGK Toán 2 Tập 1)',
+    description: 'Nắm vững đơn vị đo độ dài dm (1 dm = 10 cm), đơn vị đo khối lượng kg, đơn vị đo dung tích lít (l).',
     iconName: 'Scale',
     badgeColor: 'violet',
-    learningGoals: ['Biết 1 dm = 10 cm', 'Thực hiện phép tính với đơn vị đo l, kg, dm'],
+    learningGoals: [
+      'Ghi nhớ: 1 dm = 10 cm và 10 cm = 1 dm',
+      'Đọc và tính toán đúng với đơn vị đo ki-lô-gam (kg) và lít (l)',
+      'Giải bài toán thực tế về cân nặng và thể tích chất lỏng'
+    ],
     questions: [
       {
         id: 'm2-m1',
@@ -614,7 +774,7 @@ export const CURRICULUM_DATA: LessonTopic[] = [
         format: 'fill_blank',
         prompt: 'Điền số thích hợp: 1 dm = ... cm',
         correctAnswer: '10',
-        solutionExplanation: '1 đề-xi-mét bằng 10 xăng-ti-mét.',
+        solutionExplanation: '1 đề-xi-mét bằng 10 xăng-ti-mét (1 dm = 10 cm).',
         cognitiveLevel: 'Nhận biết'
       },
       {
@@ -623,7 +783,7 @@ export const CURRICULUM_DATA: LessonTopic[] = [
         subject: 'math',
         topicId: 'math-g2-measurement',
         format: 'multiple_choice',
-        prompt: 'Một can chứa 10 lít nước ngọt thốt nốt, rót ra các chai hết 4 lít. Hỏi trong can còn lại bao nhiêu lít nước?',
+        prompt: 'Một can chứa 10 lít nước thốt nốt đặc sản An Giang, rót ra các bình hết 4 lít. Hỏi trong can còn lại bao nhiêu lít nước?',
         options: ['A. 6 lít', 'B. 14 lít', 'C. 5 lít', 'D. 7 lít'],
         correctAnswer: 'A. 6 lít',
         solutionExplanation: '10 - 4 = 6 (lít).',
@@ -647,24 +807,607 @@ export const CURRICULUM_DATA: LessonTopic[] = [
         subject: 'math',
         topicId: 'math-g2-measurement',
         format: 'multiple_choice',
-        prompt: 'Đồng hồ chỉ mấy giờ khi kim ngắn chỉ số 3, kim dài chỉ số 12?',
-        options: ['A. 3 giờ đúng', 'B. 12 giờ 15 phút', 'C. 3 giờ 30 phút', 'D. 12 giờ đúng'],
-        correctAnswer: 'A. 3 giờ đúng',
-        solutionExplanation: 'Kim ngắn chỉ giờ (số 3), kim dài chỉ phút ở số 12 là đúng 3 giờ.',
+        prompt: 'Gói kẹo cân nặng 200 g, hộp bánh cân nặng 500 g. Cả gói kẹo và hộp bánh cân nặng là:',
+        options: ['A. 700 g', 'B. 300 g', 'C. 800 g', 'D. 600 g'],
+        correctAnswer: 'A. 700 g',
+        solutionExplanation: '200 g + 500 g = 700 g.',
+        cognitiveLevel: 'Thông hiểu'
+      }
+    ]
+  },
+  {
+    id: 'math-g2-time-calendar',
+    grade: 2,
+    subject: 'math',
+    title: 'Thời gian: Ngày - Giờ, Giờ - Phút, Ngày - Tháng',
+    weekRange: 'Tuần 23 - 25 (SGK Toán 2 Tập 1)',
+    description: 'Biết xem đồng hồ khi kim phút chỉ số 12 (giờ đúng), số 6 (30 phút / rưỡi). Biết xem lịch tờ, lịch tháng.',
+    iconName: 'Clock',
+    badgeColor: 'amber',
+    learningGoals: [
+      'Đọc đúng giờ khi kim ngắn chỉ số giờ, kim dài chỉ số 12 hoặc số 6',
+      'Biết 1 ngày có 24 giờ, 1 giờ có 60 phút',
+      'Đọc được thứ, ngày, tháng trên tờ lịch treo tường'
+    ],
+    questions: [
+      {
+        id: 'm2-time-1',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-time-calendar',
+        format: 'multiple_choice',
+        prompt: 'Đồng hồ có kim ngắn chỉ số 8, kim dài chỉ số 12. Lúc đó là mấy giờ?',
+        options: ['A. 8 giờ đúng', 'B. 12 giờ 8 phút', 'C. 8 giờ 30 phút', 'D. 12 giờ đúng'],
+        correctAnswer: 'A. 8 giờ đúng',
+        solutionExplanation: 'Kim ngắn chỉ giờ (số 8), kim dài chỉ số 12 là đúng 8 giờ.',
         cognitiveLevel: 'Nhận biết'
+      },
+      {
+        id: 'm2-time-2',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-time-calendar',
+        format: 'multiple_choice',
+        prompt: 'Đồng hồ có kim ngắn ở giữa số 2 và số 3, kim dài chỉ số 6. Đồng hồ chỉ mấy giờ?',
+        options: ['A. 2 giờ rưỡi (2 giờ 30 phút)', 'B. 3 giờ 30 phút', 'C. 6 giờ đúng', 'D. 2 giờ 6 phút'],
+        correctAnswer: 'A. 2 giờ rưỡi (2 giờ 30 phút)',
+        solutionExplanation: 'Kim dài chỉ số 6 là 30 phút (giờ rưỡi), kim ngắn qua số 2 là 2 giờ 30 phút.',
+        cognitiveLevel: 'Thông hiểu'
+      },
+      {
+        id: 'm2-time-3',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-time-calendar',
+        format: 'fill_blank',
+        prompt: 'Một ngày có bao nhiêu giờ? (chỉ nhập số)',
+        correctAnswer: '24',
+        solutionExplanation: 'Một ngày có 24 giờ (tính từ 12 giờ đêm hôm trước đến 12 giờ đêm hôm sau).',
+        cognitiveLevel: 'Nhận biết'
+      }
+    ]
+  },
+  {
+    id: 'math-g2-multdiv',
+    grade: 2,
+    subject: 'math',
+    title: 'Phép nhân và Phép chia (Bảng nhân 2, 5; Bảng chia 2, 5)',
+    weekRange: 'Tuần 26 - 30 (SGK Toán 2 Tập 2)',
+    description: 'Hình thành khái niệm phép nhân là tổng các số hạng bằng nhau. Bảng nhân 2, 5; Bảng chia 2, 5.',
+    iconName: 'Calculator',
+    badgeColor: 'emerald',
+    learningGoals: [
+      'Thuộc lòng bảng nhân 2, 5 và bảng chia 2, 5',
+      'Hiểu bản chất phép nhân 2 x 4 = 2 + 2 + 2 + 2 = 8',
+      'Hiểu mối quan hệ giữa phép nhân và phép chia (2 x 5 = 10 suy ra 10 : 2 = 5)'
+    ],
+    anGiangNote: 'Mỗi thuyền ba lá chở 5 thúng lúa. Hỏi 4 thuyền chở bao nhiêu thúng lúa?',
+    questions: [
+      {
+        id: 'm2-1',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-multdiv',
+        format: 'multiple_choice',
+        prompt: 'Tính: 3 x 4 = ?',
+        options: ['A. 7', 'B. 12', 'C. 14', 'D. 10'],
+        correctAnswer: 'B. 12',
+        solutionExplanation: '3 x 4 nghĩa là 3 được lấy 4 lần: 3 + 3 + 3 + 3 = 12.',
+        cognitiveLevel: 'Thông hiểu',
+        commonErrors: [
+          {
+            pattern: 'A. 7',
+            category: 'Nhầm phép nhân thành phép cộng',
+            explanation: 'Có vẻ em đã lấy 3 + 4 = 7 thay vì thực hiện phép nhân!',
+            hint: 'Phép nhân 3 x 4 nghĩa là có 4 nhóm, mỗi nhóm có 3 đồ vật: 3 + 3 + 3 + 3 = ?'
+          }
+        ]
+      },
+      {
+        id: 'm2-2',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-multdiv',
+        format: 'multiple_choice',
+        prompt: 'Mỗi chiếc ghe ở chợ nổi An Giang chở 5 giỏ bưởi. Hỏi 6 chiếc ghe như thế chở tất cả bao nhiêu giỏ bưởi?',
+        options: ['A. 30 giỏ', 'B. 25 giỏ', 'C. 11 giỏ', 'D. 35 giỏ'],
+        correctAnswer: 'A. 30 giỏ',
+        solutionExplanation: 'Số giỏ bưởi là: 5 x 6 = 30 (giỏ bưởi).',
+        cognitiveLevel: 'Vận dụng',
+        isAnGiangContext: true
+      },
+      {
+        id: 'm2-3',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-multdiv',
+        format: 'fill_blank',
+        prompt: 'Tính: 10 : 2 = ?',
+        correctAnswer: '5',
+        solutionExplanation: 'Có 10 quả chia đều cho 2 bạn, mỗi bạn được 5 quả: 10 : 2 = 5.',
+        cognitiveLevel: 'Thông hiểu'
+      },
+      {
+        id: 'm2-4',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-multdiv',
+        format: 'fill_blank',
+        prompt: 'Tính: 35 : 5 = ?',
+        correctAnswer: '7',
+        solutionExplanation: 'Dựa vào bảng chia 5: 5 x 7 = 35 nên 35 : 5 = 7.',
+        cognitiveLevel: 'Thông hiểu'
+      }
+    ]
+  },
+  {
+    id: 'math-g2-solids-geometry',
+    grade: 2,
+    subject: 'math',
+    title: 'Khối trụ, Khối cầu và Hình học không gian trực quan',
+    weekRange: 'Tuần 31 - 32 (SGK Toán 2 Tập 2)',
+    description: 'Nhận biết khối trụ, khối cầu qua các vật thể thực tế trong đời sống như lon sữa, quả bóng bưởi, hộp chè.',
+    iconName: 'Layers',
+    badgeColor: 'teal',
+    learningGoals: [
+      'Nhận dạng chính xác khối trụ và khối cầu qua hình ảnh trực quan',
+      'Phân biệt khối trụ (có hai mặt đáy phẳng hình tròn) và khối cầu (mặt cong đều)',
+      'Kể tên được 3 đồ vật xung quanh có dạng khối trụ hoặc khối cầu'
+    ],
+    questions: [
+      {
+        id: 'm2-solid-1',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-solids-geometry',
+        format: 'multiple_choice',
+        prompt: 'Đồ vật nào dưới đây có dạng khối cầu?',
+        options: ['A. Quả bóng đá', 'B. Hộp sữa ông thọ', 'C. Quyển sách toán', 'D. Chiếc hộp bút chữ nhật'],
+        correctAnswer: 'A. Quả bóng đá',
+        solutionExplanation: 'Quả bóng đá tròn đều về mọi phía nên có dạng khối cầu.',
+        cognitiveLevel: 'Nhận biết'
+      },
+      {
+        id: 'm2-solid-2',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-solids-geometry',
+        format: 'multiple_choice',
+        prompt: 'Lon sữa đặc hình trụ có mấy mặt đáy hình tròn phẳng?',
+        options: ['A. 2 mặt đáy', 'B. 1 mặt đáy', 'C. 3 mặt đáy', 'D. Không có mặt đáy nào'],
+        correctAnswer: 'A. 2 mặt đáy',
+        solutionExplanation: 'Khối trụ có 2 mặt đáy phẳng hình tròn ở hai đầu và một mặt xung quanh uốn cong.',
+        cognitiveLevel: 'Thông hiểu'
+      }
+    ]
+  },
+  {
+    id: 'math-g2-within1000',
+    grade: 2,
+    subject: 'math',
+    title: 'Các số trong phạm vi 1000 & So sánh số có ba chữ số',
+    weekRange: 'Tuần 33 - 35 (SGK Toán 2 Tập 2)',
+    description: 'Đơn vị, chục, trăm, một nghìn. Đọc, viết và so sánh các số có ba chữ số.',
+    iconName: 'Calculator',
+    badgeColor: 'blue',
+    learningGoals: [
+      'Đọc và viết đúng các số có ba chữ số',
+      'Viết số thành tổng trăm, chục và đơn vị (ví dụ: 352 = 300 + 50 + 2)',
+      'So sánh thành thạo hai số có ba chữ số'
+    ],
+    questions: [
+      {
+        id: 'm2-1000-1',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-within1000',
+        format: 'fill_blank',
+        prompt: 'Số gồm 5 trăm, 2 chục và 8 đơn vị được viết là: (chỉ nhập số)',
+        correctAnswer: '528',
+        solutionExplanation: '5 trăm, 2 chục, 8 đơn vị ghép lại là 528.',
+        cognitiveLevel: 'Nhận biết'
+      },
+      {
+        id: 'm2-1000-2',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-within1000',
+        format: 'multiple_choice',
+        prompt: 'Điền dấu thích hợp: 472 ... 481',
+        options: ['A. <', 'B. >', 'C. =', 'D. +'],
+        correctAnswer: 'A. <',
+        solutionExplanation: 'Cả hai số cùng có chữ số hàng trăm là 4. So sánh hàng chục: 7 chục bé hơn 8 chục, nên 472 < 481.',
+        cognitiveLevel: 'Thông hiểu'
+      },
+      {
+        id: 'm2-1000-3',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-within1000',
+        format: 'fill_blank',
+        prompt: 'Số tròn trăm liền sau số 300 là số nào?',
+        correctAnswer: '400',
+        solutionExplanation: 'Các số tròn trăm: 100, 200, 300, 400, 500... Liền sau 300 là 400.',
+        cognitiveLevel: 'Thông hiểu'
+      }
+    ]
+  },
+  {
+    id: 'math-g2-length-units',
+    grade: 2,
+    subject: 'math',
+    title: 'Mét (m), Ki-lô-mét (km), Mi-li-mét (mm)',
+    weekRange: 'Tuần 36 - 38 (SGK Toán 2 Tập 2)',
+    description: 'Làm quen đơn vị đo độ dài lớn và nhỏ: Mét (m), Ki-lô-mét (km), Mi-li-mét (mm). 1 m = 100 cm, 1 km = 1000 m.',
+    iconName: 'Scale',
+    badgeColor: 'violet',
+    learningGoals: [
+      'Ghi nhớ: 1 m = 10 dm = 100 cm; 1 km = 1 000 m; 1 cm = 10 mm',
+      'Chọn đơn vị đo độ dài thích hợp cho từng đối tượng (bút chì dùng cm/mm, phòng học dùng m, khoảng cách đường đi dùng km)'
+    ],
+    questions: [
+      {
+        id: 'm2-len-1',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-length-units',
+        format: 'fill_blank',
+        prompt: 'Điền số thích hợp: 1 m = ... cm',
+        correctAnswer: '100',
+        solutionExplanation: '1 mét bằng 100 xăng-ti-mét (1 m = 100 cm).',
+        cognitiveLevel: 'Nhận biết'
+      },
+      {
+        id: 'm2-len-2',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-length-units',
+        format: 'multiple_choice',
+        prompt: 'Quãng đường từ trường TH-THCS Vĩnh Điều đến trung tâm thành phố Châu Đốc nên đo bằng đơn vị nào?',
+        options: ['A. Ki-lô-mét (km)', 'B. Mi-li-mét (mm)', 'C. Xăng-ti-mét (cm)', 'D. Lít (l)'],
+        correctAnswer: 'A. Ki-lô-mét (km)',
+        solutionExplanation: 'Khoảng cách giữa các địa phương, đường sá dài thường đo bằng ki-lô-mét (km).',
+        cognitiveLevel: 'Vận dụng',
+        isAnGiangContext: true
+      }
+    ]
+  },
+  {
+    id: 'math-g2-statistics-probability',
+    grade: 2,
+    subject: 'math',
+    title: 'Thu thập, phân loại số liệu & Khả năng xảy ra của sự kiện',
+    weekRange: 'Tuần 39 - 40 (SGK Toán 2 Tập 2)',
+    description: 'Làm quen bảng số liệu, biểu đồ tranh đơn giản. Nhận biết các khả năng: "Chắc chắn", "Có thể", "Không thể".',
+    iconName: 'TrendingUp',
+    badgeColor: 'rose',
+    learningGoals: [
+      'Thu thập, kiểm đếm số lượng đồ vật theo từng nhóm phân loại',
+      'Hiểu và dùng đúng các cụm từ: Chắc chắn, Có thể, Không thể trong tình huống thực tế'
+    ],
+    questions: [
+      {
+        id: 'm2-stat-1',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-statistics-probability',
+        format: 'multiple_choice',
+        prompt: 'Trong một chiếc hộp chỉ có 5 viên bi màu xanh. Em nhắm mắt lấy ra 1 viên bi. Khả năng "Lấy được viên bi màu xanh" là:',
+        options: ['A. Chắc chắn', 'B. Có thể', 'C. Không thể', 'D. Chưa biết'],
+        correctAnswer: 'A. Chắc chắn',
+        solutionExplanation: 'Vì trong hộp toàn bộ là bi xanh, nên bất kỳ viên bi nào lấy ra cũng sẽ là bi xanh. Khả năng là "Chắc chắn".',
+        cognitiveLevel: 'Thông hiểu'
+      },
+      {
+        id: 'm2-stat-2',
+        grade: 2,
+        subject: 'math',
+        topicId: 'math-g2-statistics-probability',
+        format: 'multiple_choice',
+        prompt: 'Trong hộp có 3 viên bi đỏ và 3 viên bi vàng. Khả năng "Lấy được 1 viên bi màu đen" là:',
+        options: ['A. Không thể', 'B. Có thể', 'C. Chắc chắn', 'D. Đúng một nửa'],
+        correctAnswer: 'A. Không thể',
+        solutionExplanation: 'Trong hộp không có bất kỳ viên bi đen nào, nên việc lấy được viên bi đen là "Không thể".',
+        cognitiveLevel: 'Thông hiểu'
       }
     ]
   },
 
   // ==========================================
-  // LỚP 2 - TIẾNG VIỆT
+  // LỚP 2 - TIẾNG VIỆT (BỘ KẾT NỐI TRI THỨC VỚI CUỘC SỐNG)
   // ==========================================
+  {
+    id: 'tv-g2-em-la-hoc-sinh',
+    grade: 2,
+    subject: 'vietnamese',
+    title: 'Chủ điểm: Em lớn lên từng ngày (Tôi là học sinh lớp 2)',
+    weekRange: 'Tuần 1 - 4 (SGK Tiếng Việt 2 Tập 1)',
+    description: 'Tập đọc bài "Tôi là học sinh lớp 2", "Ngày hôm qua đâu rồi?". Mở rộng vốn từ về bạn bè, trường lớp, từ chỉ sự vật.',
+    iconName: 'BookOpen',
+    badgeColor: 'teal',
+    learningGoals: [
+      'Đọc đúng, diễn cảm bài văn "Tôi là học sinh lớp 2"',
+      'Nhận biết các từ ngữ chỉ sự vật (người, đồ vật, con vật, cây cối)',
+      'Đặt câu giới thiệu bản thân theo mẫu câu "Ai là gì?"'
+    ],
+    readingPassage: {
+      title: 'Tôi là học sinh lớp 2',
+      content: 'Ngày khai trường đã đến. Sáng sớm, mẹ gọi em dậy từ lúc chuông đồng hồ reo. Em mặc bộ đồng phục mới tinh, đeo chiếc khăn quàng đỏ tươi và chiếc cặp sách xinh xắn trên lưng. Đến cổng trường TH-THCS Vĩnh Điều, em thấy ngôi trường hôm nay thật rực rỡ cờ hoa. Gặp lại thầy cô và bạn bè sau ba tháng hè, ai nấy đều lớn hẳn lên. Em tự nhủ năm nay mình đã là học sinh lớp 2, mình sẽ học tập thật chăm chỉ và ngoan ngoãn.',
+      authorOrOrigin: 'Theo SGK Tiếng Việt 2 - Kết nối tri thức',
+      vocabularyNotes: [
+        { word: 'Khai trường', meaning: 'Ngày đầu tiên bắt đầu năm học mới' },
+        { word: 'Đồng phục', meaning: 'Trang phục giống nhau của học sinh cùng trường' }
+      ]
+    },
+    questions: [
+      {
+        id: 'tv2-hs-1',
+        grade: 2,
+        subject: 'vietnamese',
+        topicId: 'tv-g2-em-la-hoc-sinh',
+        format: 'multiple_choice',
+        prompt: 'Trong bài đọc "Tôi là học sinh lớp 2", bạn nhỏ cảm thấy ngôi trường ngày khai trường thế nào?',
+        options: ['A. Rực rỡ cờ hoa', 'B. Vắng vẻ, yên tĩnh', 'C. Tối tăm', 'D. Giống như mọi ngày'],
+        correctAnswer: 'A. Rực rỡ cờ hoa',
+        solutionExplanation: 'Bài đọc viết: "Đến cổng trường... em thấy ngôi trường hôm nay thật rực rỡ cờ hoa."',
+        cognitiveLevel: 'Nhận biết'
+      },
+      {
+        id: 'tv2-hs-2',
+        grade: 2,
+        subject: 'vietnamese',
+        topicId: 'tv-g2-em-la-hoc-sinh',
+        format: 'multiple_choice',
+        prompt: 'Từ nào sau đây là từ chỉ ĐỒ VẬT trong trường học?',
+        options: ['A. Cặp sách', 'B. Thầy giáo', 'C. Chăm chỉ', 'D. Chạy nhảy'],
+        correctAnswer: 'A. Cặp sách',
+        solutionExplanation: '"Cặp sách" là đồ vật, "thầy giáo" là người, "chăm chỉ" là đặc điểm, "chạy nhảy" là hoạt động.',
+        cognitiveLevel: 'Thông hiểu'
+      },
+      {
+        id: 'tv2-hs-3',
+        grade: 2,
+        subject: 'vietnamese',
+        topicId: 'tv-g2-em-la-hoc-sinh',
+        format: 'fill_blank',
+        prompt: 'Điền từ còn thiếu vào câu: "Em là học sinh lớp ... chăm chỉ."',
+        correctAnswer: '2',
+        solutionExplanation: 'Học sinh đang theo học chương trình Lớp 2.',
+        cognitiveLevel: 'Nhận biết'
+      }
+    ]
+  },
+  {
+    id: 'tv-g2-niem-vui-gia-dinh',
+    grade: 2,
+    subject: 'vietnamese',
+    title: 'Chủ điểm: Mái ấm gia đình (Niềm vui của Bi và Bống)',
+    weekRange: 'Tuần 5 - 9 (SGK Tiếng Việt 2 Tập 1)',
+    description: 'Bài đọc "Niềm vui của Bi và Bống", "Bà nội, bà ngoại". Tình cảm anh chị em, lòng hiếu thảo với ông bà cha mẹ.',
+    iconName: 'HeartHandshake',
+    badgeColor: 'rose',
+    learningGoals: [
+      'Hiểu ý nghĩa của sự yêu thương, san sẻ niềm vui giữa các thành viên gia đình',
+      'Mở rộng vốn từ về người thân: ông bà, bố mẹ, anh chị em',
+      'Viết được 1-2 câu bày tỏ tình cảm biết ơn người thân'
+    ],
+    readingPassage: {
+      title: 'Niềm vui của Bi và Bống',
+      content: 'Khi cơn mưa rào vừa dứt, một dải cầu vồng bảy sắc lung linh hiện lên ở cuối trời. Bi chỉ tay lên trời reo to: "Bống ơi, dưới chân cầu vồng có một hũ vàng to lắm đấy!". Bống cười tít mắt: "Thế anh em mình sẽ chia nhau nhé! Em sẽ mua thật nhiều búp bê và váy đẹp!". Bi lắc đầu bảo: "Anh sẽ mua một chiếc xe đạp để chở em đi học, mua cho mẹ chiếc tạp dề mới và mua cho bố đôi ủng đi ruộng thật êm!". Bống nghe vậy cảm động ôm chầm lấy anh Bi. Hai anh em nhìn nhau cười khúc khích, niềm vui rạng rỡ như ánh cầu vồng.',
+      authorOrOrigin: 'Theo SGK Tiếng Việt 2 - Kết nối tri thức',
+      vocabularyNotes: [
+        { word: 'Cầu vồng', meaning: 'Dải hình cung nhiều màu sắc xuất hiện trên bầu trời sau cơn mưa' },
+        { word: 'Ủng', meaning: 'Đôi giày cổ cao bằng cao su dùng để đi ruộng chống ướt bẩn' }
+      ]
+    },
+    questions: [
+      {
+        id: 'tv2-nv-1',
+        grade: 2,
+        subject: 'vietnamese',
+        topicId: 'tv-g2-niem-vui-gia-dinh',
+        format: 'multiple_choice',
+        prompt: 'Nếu tìm được hũ vàng, bạn Bi dự định mua gì cho bố mẹ và em Bống?',
+        options: [
+          'A. Xe đạp chở em, tạp dề cho mẹ, đôi ủng đi ruộng cho bố',
+          'B. Rất nhiều đồ chơi điện tử',
+          'C. Quần áo mới cho riêng mình',
+          'D. Một chiếc thuyền máy to'
+        ],
+        correctAnswer: 'A. Xe đạp chở em, tạp dề cho mẹ, đôi ủng đi ruộng cho bố',
+        solutionExplanation: 'Bi rất hiếu thảo và thương em nên muốn mua xe đạp chở em đi học, mua tạp dề cho mẹ và đôi ủng cho bố.',
+        cognitiveLevel: 'Thông hiểu'
+      },
+      {
+        id: 'tv2-nv-2',
+        grade: 2,
+        subject: 'vietnamese',
+        topicId: 'tv-g2-niem-vui-gia-dinh',
+        format: 'multiple_choice',
+        prompt: 'Từ ngữ nào chỉ TÌNH CẢM trong gia đình?',
+        options: ['A. Yêu thương', 'B. Cái bàn', 'C. Ngôi nhà', 'D. Nấu cơm'],
+        correctAnswer: 'A. Yêu thương',
+        solutionExplanation: '"Yêu thương" là từ chỉ tình cảm, cảm xúc tốt đẹp giữa mọi người.',
+        cognitiveLevel: 'Nhận biết'
+      }
+    ]
+  },
+  {
+    id: 'tv-g2-di-hoc-vui-sao',
+    grade: 2,
+    subject: 'vietnamese',
+    title: 'Chủ điểm: Đi học vui sao (Làm việc thật là vui)',
+    weekRange: 'Tuần 10 - 13 (SGK Tiếng Việt 2 Tập 1)',
+    description: 'Bài đọc "Làm việc thật là vui" của nhà văn Tô Hoài. Nhận biết từ chỉ hoạt động của con người, loài vật, đồ vật.',
+    iconName: 'Sparkles',
+    badgeColor: 'amber',
+    learningGoals: [
+      'Đọc trôi chảy, đúng nhịp bài "Làm việc thật là vui"',
+      'Xác định đúng các từ ngữ chỉ hoạt động trong câu',
+      'Hiểu rằng lao động và học tập mang lại niềm vui mỗi ngày'
+    ],
+    readingPassage: {
+      title: 'Làm việc thật là vui',
+      content: 'Quanh ta, mọi vật, mọi người đều làm việc. Cái đồng hồ tích tắc, tích tắc báo phút, báo giờ. Con gà trống gáy vang ò... ó... o... báo trời sáng, đánh thức mọi người dậy. Con tu hú kêu tu hú, tu hú báo mùa vải chín. Chim sâu bắt sâu bảo vệ mùa màng non tơ. Cành đào nở hoa cho sắc xuân thêm rực rỡ. Như mọi vật, bé cũng bận rộn: bé đi học, bé quét nhà, nhặt rau giúp mẹ. Làm việc tuy có mệt nhưng lúc nào cũng thấy vui tươi và có ích.',
+      authorOrOrigin: 'Nhà văn Tô Hoài (SGK Tiếng Việt 2)',
+      vocabularyNotes: [
+        { word: 'Tích tắc', meaning: 'Âm thanh kim đồng hồ chuyển động nhịp nhàng' },
+        { word: 'Mùa màng', meaning: 'Cây cối, lúa, hoa màu được trồng và thu hoạch' }
+      ]
+    },
+    questions: [
+      {
+        id: 'tv2-lv-1',
+        grade: 2,
+        subject: 'vietnamese',
+        topicId: 'tv-g2-di-hoc-vui-sao',
+        format: 'multiple_choice',
+        prompt: 'Trong bài "Làm việc thật là vui", tiếng gà trống gáy có tác dụng gì?',
+        options: [
+          'A. Báo trời sáng, đánh thức mọi người dậy',
+          'B. Báo mùa vải chín',
+          'C. Bắt sâu cho lá non',
+          'D. Báo phút, báo giờ'
+        ],
+        correctAnswer: 'A. Báo trời sáng, đánh thức mọi người dậy',
+        solutionExplanation: 'Bài đọc nêu rõ: "Con gà trống gáy vang ò... ó... o... báo trời sáng, đánh thức mọi người dậy."',
+        cognitiveLevel: 'Nhận biết'
+      },
+      {
+        id: 'tv2-lv-2',
+        grade: 2,
+        subject: 'vietnamese',
+        topicId: 'tv-g2-di-hoc-vui-sao',
+        format: 'multiple_choice',
+        prompt: 'Dãy từ nào sau đây toàn là TỪ CHỈ HOẠT ĐỘNG?',
+        options: [
+          'A. Quét nhà, đi học, nhặt rau',
+          'B. Đồng hồ, con gà, cành đào',
+          'C. Đỏ thắm, vui tươi, chăm chỉ',
+          'D. Học sinh, sách vở, lớp học'
+        ],
+        correctAnswer: 'A. Quét nhà, đi học, nhặt rau',
+        solutionExplanation: '"Quét nhà", "đi học", "nhặt rau" là các hành động thể chất của con người (từ chỉ hoạt động).',
+        cognitiveLevel: 'Thông hiểu'
+      }
+    ]
+  },
+  {
+    id: 'tv-g2-chuyen-bon-mua',
+    grade: 2,
+    subject: 'vietnamese',
+    title: 'Chủ điểm: Bốn mùa tươi đẹp (Chuyện bốn mùa & Mùa vàng)',
+    weekRange: 'Tuần 14 - 18 (SGK Tiếng Việt 2 Tập 2)',
+    description: 'Khám phá đặc điểm bốn mùa Xuân, Hạ, Thu, Đông. Mở rộng vốn từ về thời tiết, cây cối, mùa màng; mẫu câu Khi nào?.',
+    iconName: 'Trees',
+    badgeColor: 'emerald',
+    learningGoals: [
+      'Đọc diễn cảm bài đọc "Chuyện bốn mùa"',
+      'Biết đặc trưng của 4 mùa: Xuân đâm chồi, Hạ hoa phượng, Thu trăng rằm, Đông ấp ủ mầm non',
+      'Nhận biết và đặt câu hỏi có cụm từ "Khi nào?"'
+    ],
+    readingPassage: {
+      title: 'Chuyện bốn mùa',
+      content: 'Bốn nàng tiên Xuân, Hạ, Thu, Đông gặp nhau trong đêm giao thừa. Nàng Đông cầm tay nàng Xuân khen: "Chị về thì vườn cây đâm chồi nảy lộc, hoa đua nhau nở rộ!". Nàng Xuân mỉm cười: "Nhờ có nàng Hạ sưởi ấm, trái cây mới chín ngọt thơm lành!". Nàng Hạ lại nói: "Phải có nàng Thu mát mẻ, các em nhỏ mới được rước đèn phá cỗ Trung thu rộn ràng!". Bà Đất hiền hậu mỉm cười bảo: "Mùa nào cũng có ích, mùa nào cũng đáng yêu! Bốn chị em hợp lại mới làm cho đất trời muôn sắc muôn màu!".',
+      authorOrOrigin: 'Theo SGK Tiếng Việt 2 - Kết nối tri thức',
+      vocabularyNotes: [
+        { word: 'Giao thừa', meaning: 'Thời khắc chuyển giao giữa năm cũ và năm mới' },
+        { word: 'Đâm chồi nảy lộc', meaning: 'Cây cối mọc ra những mầm lá non mới xanh mơn mởn' }
+      ]
+    },
+    questions: [
+      {
+        id: 'tv2-bm-1',
+        grade: 2,
+        subject: 'vietnamese',
+        topicId: 'tv-g2-chuyen-bon-mua',
+        format: 'multiple_choice',
+        prompt: 'Theo lời Bà Đất, vì sao mùa nào trong năm cũng đáng yêu?',
+        options: [
+          'A. Vì mùa nào cũng có ích, hợp lại làm cho đất trời muôn sắc muôn màu',
+          'B. Vì mùa nào cũng có nhiều hoa',
+          'C. Vì mùa nào học sinh cũng được nghỉ hè',
+          'D. Vì mùa nào cũng có mưa tuyết'
+        ],
+        correctAnswer: 'A. Vì mùa nào cũng có ích, hợp lại làm for đất trời muôn sắc muôn màu',
+        solutionExplanation: 'Bà Đất nói: "Mùa nào cũng có ích, mùa nào cũng đáng yêu! Bốn chị em hợp lại mới làm cho đất trời muôn sắc muôn màu!".',
+        cognitiveLevel: 'Thông hiểu'
+      },
+      {
+        id: 'tv2-bm-2',
+        grade: 2,
+        subject: 'vietnamese',
+        topicId: 'tv-g2-chuyen-bon-mua',
+        format: 'multiple_choice',
+        prompt: 'Bộ phận in đậm trong câu "Mùa xuân về, cây cối đâm chồi nảy lộc." trả lời cho câu hỏi nào?',
+        options: ['A. Khi nào?', 'B. Ở đâu?', 'C. Là gì?', 'D. Vì sao?'],
+        correctAnswer: 'A. Khi nào?',
+        solutionExplanation: '"Mùa xuân về" là trạng ngữ chỉ thời gian, trả lời cho câu hỏi "Khi nào?".',
+        cognitiveLevel: 'Thông hiểu'
+      }
+    ]
+  },
+  {
+    id: 'tv-g2-the-gioi-loai-vat',
+    grade: 2,
+    subject: 'vietnamese',
+    title: 'Chủ điểm: Bài học cuộc sống (Bác sĩ Sói & Chuyện của thước kẻ)',
+    weekRange: 'Tuần 19 - 23 (SGK Tiếng Việt 2 Tập 2)',
+    description: 'Đọc hiểu truyện ngụ ngôn "Bác sĩ Sói", truyện "Chuyện của thước kẻ". Mẫu câu "Vì sao?", "Để làm gì?".',
+    iconName: 'Sparkles',
+    badgeColor: 'sky',
+    learningGoals: [
+      'Nắm được bài học đạo đức: khiêm tốn, đoàn kết và mưu trí trước kẻ xấu',
+      'Phân biệt được câu hỏi và câu trả lời theo mẫu "Vì sao?", "Để làm gì?"',
+      'Mở rộng vốn từ về phẩm chất, đức tính của con người'
+    ],
+    readingPassage: {
+      title: 'Bác sĩ Sói',
+      content: 'Thấy Ngựa đang ăn cỏ non trên đồng cỏ, Sói thèm rỏ dãi. Nó không dám xông vào bắt Ngựa vì sợ Ngựa đá. Sói bèn khoác một chiếc áo choàng trắng, đeo cặp kính cận, xách ống nghe giả làm bác sĩ đến gần Ngựa. Sói ngon ngọt bảo: "Ta là bác sĩ đây, thấy bạn có vẻ đau chân, để ta khám chữa giúp nhé!". Ngựa thông minh biết tỏng mưu mô của Sói gian ác, liền giả vờ đau chân sau rồi nhờ Sói khám. Khi Sói mon men cúi xuống nhìn, Ngựa liền tung vó đá một cú trời giáng khiến Sói văng kính, ngã ngửa ra đất rồi cụp đuôi chạy biến.',
+      authorOrOrigin: 'Truyện ngụ ngôn (SGK Tiếng Việt 2)',
+      vocabularyNotes: [
+        { word: 'Mon men', meaning: 'Tiến lại gần một cách lén lút, rụt rè' },
+        { word: 'Trời giáng', meaning: 'Cú đánh rất mạnh và bất ngờ' }
+      ]
+    },
+    questions: [
+      {
+        id: 'tv2-soi-1',
+        grade: 2,
+        subject: 'vietnamese',
+        topicId: 'tv-g2-the-gioi-loai-vat',
+        format: 'multiple_choice',
+        prompt: 'Vì sao chú Ngựa lại giả vờ bị đau chân sau?',
+        options: [
+          'A. Để lừa Sói cúi xuống rồi tung vó đá phạt kẻ gian ác',
+          'B. Vì chân Ngựa bị gai đâm thật',
+          'C. Vì Ngựa muốn nhờ Sói chữa bệnh',
+          'D. Vì Ngựa sợ chạy không kịp'
+        ],
+        correctAnswer: 'A. Để lừa Sói cúi xuống rồi tung vó đá phạt kẻ gian ác',
+        solutionExplanation: 'Ngựa rất mưu trí, biết Sói giả dạng bác sĩ để hại mình nên đã tương kế tựu kế trừng phạt Sói.',
+        cognitiveLevel: 'Thông hiểu'
+      },
+      {
+        id: 'tv2-soi-2',
+        grade: 2,
+        subject: 'vietnamese',
+        topicId: 'tv-g2-the-gioi-loai-vat',
+        format: 'multiple_choice',
+        prompt: 'Cặp từ ngữ nào dưới đây chỉ TÍNH NẾT của chú Ngựa trong bài?',
+        options: ['A. Thông minh, mưu trí', 'B. Hung dữ, độc ác', 'C. Nhút nhát, sợ sệt', 'D. Lười biếng'],
+        correctAnswer: 'A. Thông minh, mưu trí',
+        solutionExplanation: 'Ngựa xử lý tình huống rất khôn ngoan và dũng cảm.',
+        cognitiveLevel: 'Nhận biết'
+      }
+    ]
+  },
   {
     id: 'tv-g2-reading',
     grade: 2,
     subject: 'vietnamese',
-    title: 'Đọc hiểu và Mở rộng vốn từ về Thiên nhiên',
-    weekRange: 'Tuần 10 - 14',
+    title: 'Chủ điểm: Vẻ đẹp non sông (Mùa hoa điên điển An Giang)',
+    weekRange: 'Tuần 24 - 28 (SGK Tiếng Việt 2 Tập 2)',
     description: 'Đọc hiểu văn bản về quê hương đồng bằng sông Cửu Long, nhận biết từ chỉ sự vật, hoạt động, đặc điểm.',
     iconName: 'BookOpen',
     badgeColor: 'teal',
@@ -702,15 +1445,7 @@ export const CURRICULUM_DATA: LessonTopic[] = [
         options: ['A. Vàng rực', 'B. Chèo xuồng', 'C. Dòng kênh', 'D. Cánh đồng'],
         correctAnswer: 'A. Vàng rực',
         solutionExplanation: '"Vàng rực" chỉ màu sắc (đặc điểm), còn "chèo xuồng" là hoạt động, "dòng kênh" là sự vật.',
-        cognitiveLevel: 'Thông hiểu',
-        commonErrors: [
-          {
-            pattern: 'B. Chèo xuồng',
-            category: 'Nhầm lẫn từ chỉ hoạt động với từ chỉ đặc điểm',
-            explanation: '"Chèo xuồng" là một hành động cụ thể của con người, không phải đặc điểm.',
-            hint: 'Từ chỉ đặc điểm thường trả lời cho câu hỏi: như thế nào? (Màu sắc, hình dáng, tính nết...)'
-          }
-        ]
+        cognitiveLevel: 'Thông hiểu'
       },
       {
         id: 'tv2-3',
@@ -743,7 +1478,7 @@ export const CURRICULUM_DATA: LessonTopic[] = [
     grade: 2,
     subject: 'vietnamese',
     title: 'Câu kể "Ai là gì?", "Ai làm gì?", "Ai thế nào?"',
-    weekRange: 'Tuần 15 - 20',
+    weekRange: 'Tuần 29 - 32 (SGK Tiếng Việt 2 Tập 2)',
     description: 'Xác định các kiểu câu kể cơ bản và đặt câu đúng cấu trúc ngữ pháp.',
     iconName: 'PenTool',
     badgeColor: 'amber',
@@ -802,12 +1537,12 @@ export const CURRICULUM_DATA: LessonTopic[] = [
     id: 'tv-g2-spelling',
     grade: 2,
     subject: 'vietnamese',
-    title: 'Phân biệt chính tả: s/x, r/d/gi, l/n',
-    weekRange: 'Tuần 5 - 10',
-    description: 'Quy tắc chính tả, phân biệt âm đầu và dấu thanh dễ nhầm lẫn.',
+    title: 'Phân biệt chính tả: s/x, r/d/gi, c/k, l/n & Dấu thanh',
+    weekRange: 'Tuần 33 - 35 (SGK Tiếng Việt 2)',
+    description: 'Quy tắc chính tả, phân biệt âm đầu và dấu thanh hỏi/ngã dễ nhầm lẫn.',
     iconName: 'Sparkles',
     badgeColor: 'rose',
-    learningGoals: ['Viết đúng chính tả s/x, d/gi/r', 'Sửa lỗi chính tả trong đoạn văn ngắn'],
+    learningGoals: ['Viết đúng chính tả s/x, d/gi/r, c/k', 'Sửa lỗi chính tả trong đoạn văn ngắn'],
     questions: [
       {
         id: 'tv2-sp1',
@@ -839,9 +1574,9 @@ export const CURRICULUM_DATA: LessonTopic[] = [
         subject: 'vietnamese',
         topicId: 'tv-g2-spelling',
         format: 'fill_blank',
-        prompt: 'Điền chữ cái thích hợp (l hay n): "Nước non ...gàn dặm"',
-        correctAnswer: 'n',
-        solutionExplanation: '"Ngàn dặm" bắt đầu bằng âm ng, còn nước non thì non bắt đầu bằng chữ n.',
+        prompt: 'Quy tắc chính tả: Âm "k" chỉ đứng trước các chữ cái e, ê, ... (nhập chữ cái còn lại)',
+        correctAnswer: 'i',
+        solutionExplanation: 'Quy tắc chính tả: k chỉ đi với i, e, ê (ví dụ: kì lạ, kể chuyện, kính yêu).',
         cognitiveLevel: 'Thông hiểu'
       },
       {
@@ -854,6 +1589,61 @@ export const CURRICULUM_DATA: LessonTopic[] = [
         options: ['A. Dành dụm', 'B. Gian nan', 'C. Rộn ràng', 'D. Giành dụm'],
         correctAnswer: 'D. Giành dụm',
         solutionExplanation: '"Dành dụm" (tiết kiệm) viết bằng d, viết "giành dụm" là sai chính tả.',
+        cognitiveLevel: 'Vận dụng'
+      }
+    ]
+  },
+  {
+    id: 'tv-g2-tap-lam-van',
+    grade: 2,
+    subject: 'vietnamese',
+    title: 'Luyện viết đoạn: Kể việc làm tốt & Bày tỏ tình cảm',
+    weekRange: 'Tuần 36 - 38 (SGK Tiếng Việt 2 Tập 2)',
+    description: 'Rèn luyện kỹ năng viết đoạn văn từ 3 đến 5 câu kể về một việc làm tốt em đã làm, viết lời cảm ơn, xin lỗi.',
+    iconName: 'PenTool',
+    badgeColor: 'indigo',
+    learningGoals: [
+      'Viết đoạn văn ngắn 3-5 câu có đầu câu viết hoa, cuối câu có dấu chấm',
+      'Diễn đạt rõ ràng việc mình đã làm (thời gian, địa điểm, hành động, cảm xúc)'
+    ],
+    readingPassage: {
+      title: 'Đoạn văn mẫu: Em giúp bà qua đường',
+      content: 'Chiều hôm qua, khi tan học ở cổng trường Vĩnh Điều, em nhìn thấy một bà cụ lưng còng đang phân vân chưa dám sang đường vì có nhiều xe cộ. Em liền chạy lại lễ phép chào bà và xin phép dắt tay bà sang đường. Qua bên kia đường an toàn, bà mỉm cười xoa đầu khen em là cậu bé ngoan. Em cảm thấy lòng mình ngập tràn niềm vui vì đã làm được một việc tốt giúp đỡ người lớn tuổi.',
+      authorOrOrigin: 'Bài văn mẫu tiểu học GDPT 2018'
+    },
+    questions: [
+      {
+        id: 'tv2-tlv-1',
+        grade: 2,
+        subject: 'vietnamese',
+        topicId: 'tv-g2-tap-lam-van',
+        format: 'multiple_choice',
+        prompt: 'Khi viết một câu văn hoàn chỉnh, quy tắc về chữ cái đầu câu và cuối câu là gì?',
+        options: [
+          'A. Chữ cái đầu câu phải viết hoa, cuối câu có dấu chấm (hoặc dấu chấm than, chấm hỏi)',
+          'B. Chữ cái đầu câu viết thường, cuối câu không cần dấu',
+          'C. Tất cả các từ đều viết hoa',
+          'D. Cuối câu luôn phải có dấu phẩy'
+        ],
+        correctAnswer: 'A. Chữ cái đầu câu phải viết hoa, cuối câu có dấu chấm (hoặc dấu chấm than, chấm hỏi)',
+        solutionExplanation: 'Quy tắc cơ bản: Đầu câu viết hoa, cuối câu đặt dấu câu thích hợp.',
+        cognitiveLevel: 'Nhận biết'
+      },
+      {
+        id: 'tv2-tlv-2',
+        grade: 2,
+        subject: 'vietnamese',
+        topicId: 'tv-g2-tap-lam-van',
+        format: 'multiple_choice',
+        prompt: 'Để bày tỏ lòng biết ơn khi được bạn bè cho mượn bút chì, em nên nói câu nào?',
+        options: [
+          'A. Mình cảm ơn bạn nhiều nhé!',
+          'B. Bút chì này xấu quá!',
+          'C. Cậu đưa đây cho mình!',
+          'D. Không cần nói gì'
+        ],
+        correctAnswer: 'A. Mình cảm ơn bạn nhiều nhé!',
+        solutionExplanation: 'Nói lời cảm ơn là nét đẹp văn hóa ứng xử lịch thiệp của học sinh tiểu học.',
         cognitiveLevel: 'Vận dụng'
       }
     ]

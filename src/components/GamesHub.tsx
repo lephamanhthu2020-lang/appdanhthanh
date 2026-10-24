@@ -125,10 +125,10 @@ export const GamesHub: React.FC<GamesHubProps> = ({ currentGrade }) => {
       </div>
 
       {/* Active Game Rendering */}
-      {selectedGame === 'game1' && <Game1SpeedQuiz grade={currentGrade} />}
-      {selectedGame === 'game2' && <Game2GardenRescue grade={currentGrade} />}
-      {selectedGame === 'game3' && <Game3MatchPair grade={currentGrade} />}
-      {selectedGame === 'game4' && <Game4StepSorter grade={currentGrade} />}
+      {selectedGame === 'game1' && <Game1SpeedQuiz key={currentGrade} grade={currentGrade} />}
+      {selectedGame === 'game2' && <Game2GardenRescue key={currentGrade} grade={currentGrade} />}
+      {selectedGame === 'game3' && <Game3MatchPair key={currentGrade} grade={currentGrade} />}
+      {selectedGame === 'game4' && <Game4StepSorter key={currentGrade} grade={currentGrade} />}
     </div>
   );
 };
@@ -335,13 +335,45 @@ const Game2GardenRescue: React.FC<{ grade: GradeLevel }> = ({ grade }) => {
     { name: 'Mầm Non Xanh Tươi', icon: '🌱', desc: 'Hạt giống cần nước mát phù sa' },
   ];
 
-  const challenges = [
-    { q: 'Phép tính nào đúng?', options: ['2 x 3 = 6', '2 x 3 = 5', '2 x 3 = 8'], correct: '2 x 3 = 6' },
-    { q: 'Chữ nào viết ĐÚNG chính tả?', options: ['Xinh xắn', 'Sinh xắn', 'Xinh sắn'], correct: 'Xinh xắn' },
-    { q: 'Mùa nước nổi ở An Giang có loài hoa nào nở vàng rực bờ sông?', options: ['Hoa điên điển', 'Hoa đào', 'Hoa mai anh đào'], correct: 'Hoa điên điển' },
-    { q: 'Một con mèo có 4 chân. Hỏi 3 con mèo có tất cả bao nhiêu chân?', options: ['12 chân', '7 chân', '14 chân'], correct: '12 chân' },
-    { q: 'Khi gặp người lớn tuổi, em cần chào như thế nào?', options: ['Khoanh tay lễ phép chào ạ', 'Cười rồi chạy đi', 'Không nói gì'], correct: 'Khoanh tay lễ phép chào ạ' },
-  ];
+  const challengesByGrade: Record<number, { q: string; options: string[]; correct: string }[]> = {
+    1: [
+      { q: 'Phép tính nào đúng?', options: ['3 + 4 = 7', '3 + 4 = 6', '3 + 4 = 8'], correct: '3 + 4 = 7' },
+      { q: 'Chữ nào viết ĐÚNG chính tả?', options: ['Cây bàng', 'Kây bàng', 'Cây vàng'], correct: 'Cây bàng' },
+      { q: 'Số bé nhất có hai chữ số là số nào?', options: ['10', '11', '01'], correct: '10' },
+      { q: 'Từ nào chỉ con vật nuôi trong nhà?', options: ['Con mèo', 'Cái bàn', 'Chạy nhảy'], correct: 'Con mèo' },
+      { q: 'Khi gặp thầy cô giáo, em cần làm gì?', options: ['Khoanh tay lễ phép chào ạ', 'Chạy đi chơi', 'Không nói gì'], correct: 'Khoanh tay lễ phép chào ạ' },
+    ],
+    2: [
+      { q: 'Phép tính nào đúng?', options: ['2 x 3 = 6', '2 x 3 = 5', '2 x 3 = 8'], correct: '2 x 3 = 6' },
+      { q: 'Chữ nào viết ĐÚNG chính tả?', options: ['Xinh xắn', 'Sinh xắn', 'Xinh sắn'], correct: 'Xinh xắn' },
+      { q: 'Mùa nước nổi ở Vĩnh Điều, An Giang có loài hoa nào nở vàng rực?', options: ['Hoa điên điển', 'Hoa đào', 'Hoa mai anh đào'], correct: 'Hoa điên điển' },
+      { q: 'Một con mèo có 4 chân. Hỏi 3 con mèo có tất cả bao nhiêu chân?', options: ['12 chân', '7 chân', '14 chân'], correct: '12 chân' },
+      { q: 'Đồng hồ kim ngắn chỉ số 4, kim dài chỉ số 12 là mấy giờ?', options: ['4 giờ đúng', '12 giờ 4 phút', '4 giờ 30 phút'], correct: '4 giờ đúng' },
+    ],
+    3: [
+      { q: 'Tính nhẩm: 48 : 6 = ?', options: ['8', '7', '9'], correct: '8' },
+      { q: 'Từ nào chỉ hoạt động trí óc của học sinh?', options: ['Nghiên cứu', 'Đôi mắt', 'Xanh tươi'], correct: 'Nghiên cứu' },
+      { q: '1 km bằng bao nhiêu mét?', options: ['1000 m', '100 m', '10 m'], correct: '1000 m' },
+      { q: 'Rừng tràm Trà Sư thuộc tỉnh nào?', options: ['An Giang', 'Cần Thơ', 'Đồng Tháp'], correct: 'An Giang' },
+      { q: 'Phép chia 19 : 3 có số dư là mấy?', options: ['1', '2', '0'], correct: '1' },
+    ],
+    4: [
+      { q: 'Rút gọn phân số 6/8 được:', options: ['3/4', '2/3', '1/2'], correct: '3/4' },
+      { q: 'Từ nào là từ láy?', options: ['Róc rách', 'Nhà cửa', 'Xe đạp'], correct: 'Róc rách' },
+      { q: '1 tạ bằng bao nhiêu ki-lô-gam?', options: ['100 kg', '10 kg', '1000 kg'], correct: '100 kg' },
+      { q: 'Góc bẹt có số đo bằng bao nhiêu độ?', options: ['180°', '90°', '60°'], correct: '180°' },
+      { q: 'Đỉnh núi cao nhất Việt Nam tên là gì?', options: ['Phan-xi-păng', 'Núi Cấm', 'Bà Nà'], correct: 'Phan-xi-păng' },
+    ],
+    5: [
+      { q: 'Phân số 1/4 viết dưới dạng số thập phân là:', options: ['0,25', '0,4', '2,5'], correct: '0,25' },
+      { q: 'Cặp từ nào là từ đồng nghĩa?', options: ['Chăm chỉ - Cần cù', 'Cao - Thấp', 'Trắng - Đen'], correct: 'Chăm chỉ - Cần cù' },
+      { q: '25% của 200 là bao nhiêu?', options: ['50', '25', '100'], correct: '50' },
+      { q: '1 m³ nước tương ứng với bao nhiêu lít nước?', options: ['1000 lít', '100 lít', '10 lít'], correct: '1000 lít' },
+      { q: 'Miếu Bà Chúa Xứ Núi Sam nằm ở thành phố nào?', options: ['Châu Đốc (An Giang)', 'Long Xuyên', 'Rạch Giá'], correct: 'Châu Đốc (An Giang)' },
+    ],
+  };
+
+  const challenges = challengesByGrade[grade] || challengesByGrade[2];
 
   const [currentLevel, setCurrentLevel] = useState(0);
   const [rescuedList, setRescuedList] = useState<boolean[]>([false, false, false, false, false]);
@@ -476,19 +508,47 @@ const Game2GardenRescue: React.FC<{ grade: GradeLevel }> = ({ grade }) => {
 // TRÒ CHƠI 3: GHÉP ĐÔI THÔNG MINH (Match Pair)
 // ========================================================
 const Game3MatchPair: React.FC<{ grade: GradeLevel }> = ({ grade }) => {
-  const pairs = [
-    { id: 1, left: '3 x 4', right: '12' },
-    { id: 2, left: 'Hoa điên điển', right: 'Màu vàng tươi' },
-    { id: 3, left: '1 dm', right: '10 cm' },
-    { id: 4, left: 'Rừng Trà Sư', right: 'An Giang' },
-  ];
+  const pairsByGrade: Record<number, { id: number; left: string; right: string }[]> = {
+    1: [
+      { id: 1, left: '4 + 5', right: '9' },
+      { id: 2, left: '1 chục', right: '10 đơn vị' },
+      { id: 3, left: 'Con vịt', right: 'Từ chỉ con vật' },
+      { id: 4, left: 'Trường Vĩnh Điều', right: 'Mái trường thân yêu' },
+    ],
+    2: [
+      { id: 1, left: '4 x 5', right: '20' },
+      { id: 2, left: '1 dm', right: '10 cm' },
+      { id: 3, left: 'Hoa điên điển', right: 'Màu vàng tươi' },
+      { id: 4, left: 'Tôi là học sinh', right: 'Lớp 2' },
+    ],
+    3: [
+      { id: 1, left: '7 x 8', right: '56' },
+      { id: 2, left: '1 km', right: '1000 m' },
+      { id: 3, left: 'Đọc sách', right: 'Từ chỉ hoạt động' },
+      { id: 4, left: 'Rừng Trà Sư', right: 'Rừng tràm An Giang' },
+    ],
+    4: [
+      { id: 1, left: '2/3 + 1/3', right: '1' },
+      { id: 2, left: '1 tấn', right: '1000 kg' },
+      { id: 3, left: 'Góc vuông', right: '90 độ' },
+      { id: 4, left: 'Đất nước', right: 'Từ ghép' },
+    ],
+    5: [
+      { id: 1, left: '0,5 x 10', right: '5' },
+      { id: 2, left: '25%', right: 'Phân số 1/4' },
+      { id: 3, left: 'Chăm chỉ', right: 'Cần cù (Đồng nghĩa)' },
+      { id: 4, left: '1 m³', right: '1000 lít' },
+    ],
+  };
+
+  const pairs = pairsByGrade[grade] || pairsByGrade[2];
 
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [selectedRight, setSelectedRight] = useState<string | null>(null);
   const [matchedPairs, setMatchedPairs] = useState<number[]>([]);
 
   // Shuffle right items on start
-  const [shuffledRights] = useState(() => [...pairs].sort(() => Math.random() - 0.5));
+  const [shuffledRights, setShuffledRights] = useState(() => [...pairs].sort(() => Math.random() - 0.5));
 
   const handleLeftClick = (val: string) => {
     if (selectedLeft === val) setSelectedLeft(null);
@@ -520,6 +580,7 @@ const Game3MatchPair: React.FC<{ grade: GradeLevel }> = ({ grade }) => {
     setSelectedLeft(null);
     setSelectedRight(null);
     setMatchedPairs([]);
+    setShuffledRights([...pairs].sort(() => Math.random() - 0.5));
   };
 
   return (
@@ -610,8 +671,15 @@ const Game3MatchPair: React.FC<{ grade: GradeLevel }> = ({ grade }) => {
 // TRÒ CHƠI 4: SẮP XẾP TÀI TÌNH (Step Sorter)
 // ========================================================
 const Game4StepSorter: React.FC<{ grade: GradeLevel }> = ({ grade }) => {
-  // Unscramble words to make a Vietnamese sentence: "Em yêu quê hương An Giang tươi đẹp"
-  const targetWords = ['Em', 'yêu', 'quê hương', 'An Giang', 'tươi đẹp'];
+  const sentencesByGrade: Record<number, string[]> = {
+    1: ['Em', 'là', 'học sinh', 'lớp một', 'ngoan ngoãn'],
+    2: ['Em', 'yêu', 'mái trường', 'Vĩnh Điều', 'thân thương'],
+    3: ['Chúng em', 'chăm chỉ', 'học tập', 'và', 'rèn luyện'],
+    4: ['Rừng tràm', 'Trà Sư', 'xanh ngút ngàn', 'tươi đẹp'],
+    5: ['Học sinh', 'Vĩnh Điều', 'tự hào', 'xây dựng', 'quê hương'],
+  };
+
+  const targetWords = sentencesByGrade[grade] || sentencesByGrade[2];
   const [availableWords, setAvailableWords] = useState<string[]>(() =>
     [...targetWords].sort(() => Math.random() - 0.5)
   );
@@ -650,7 +718,7 @@ const Game4StepSorter: React.FC<{ grade: GradeLevel }> = ({ grade }) => {
       <div className="flex items-center justify-between border-b border-slate-100 pb-4">
         <div>
           <span className="text-xs font-black text-purple-600 uppercase tracking-wider">
-            Trò chơi 4: Sắp Xếp Tài Tình
+            Trò chơi 4: Sắp Xếp Tài Tình (Lớp {grade})
           </span>
           <h3 className="text-xl sm:text-2xl font-black text-slate-900">
             Ghép Từ Thành Câu Hoàn Chỉnh
@@ -665,7 +733,7 @@ const Game4StepSorter: React.FC<{ grade: GradeLevel }> = ({ grade }) => {
       </div>
 
       <p className="text-xs text-slate-500">
-        Hãy nhấp vào các từ rời rạc bên dưới theo đúng thứ tự để tạo thành một câu có nghĩa ngợi ca quê hương:
+        Hãy nhấp vào các từ rời rạc bên dưới theo đúng thứ tự để tạo thành một câu có nghĩa chuẩn GDPT 2018:
       </p>
 
       {/* Target Placement Area */}
@@ -714,7 +782,7 @@ const Game4StepSorter: React.FC<{ grade: GradeLevel }> = ({ grade }) => {
 
       {isSuccess && (
         <div className="bg-emerald-50 rounded-2xl p-4 border border-emerald-200 text-center text-emerald-800 font-bold text-sm animate-in fade-in">
-          🎉 Chính xác! "Em yêu quê hương An Giang tươi đẹp." – Một câu văn đầy ý nghĩa!
+          🎉 Chính xác! "{targetWords.join(' ')}." – Một câu văn đầy ý nghĩa!
         </div>
       )}
     </div>
